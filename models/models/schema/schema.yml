@@ -1,0 +1,3948 @@
+version: 2
+
+sources:
+
+    - name: CNI_UNISENAI_2026_raw_ads_sources # apelido único do *source* no dbt
+      description: Tabelas RAW ingestadas planilhas próprias;
+      database: still-protocol-440221-k2 # projeto GCP
+      schema: vendas_dataset # dataset no BigQuery
+      tables:
+
+      - name: df_final_vendas
+        description: tabela com dados raw referentes as vendas de cursos do unisenai
+        columns:
+        - name: id_pedido
+        - name: status_pedido
+        - name: data_pedido
+        - name: raiz_id_pedido
+        - name: metodo
+        - name: utm_source
+        - name: utm_medium
+        - name: utm_campaign
+        - name: cupom
+        - name: valor_desconto
+        - name: ids_categorias
+        - name: senai_play
+        - name: sellers
+        - name: valores_itens_pedido
+        - name: data_pedido_br
+        - name: valor_unitario_item
+        - name: quantidade_item
+        - name: valor_total_item
+        - name: id_sku
+        - name: id_curso
+        - name: nome_curso
+        - name: status_sku
+        - name: nome_marca
+        - name: seller
+        - name: eh_kit
+        - name: estados
+        - name: municipios
+        - name: escolas
+        - name: turnos
+        - name: dia_semana
+        - name: carga_horaria
+        - name: add_pagamento
+        - name: modalidade
+        - name: tipo_curso
+        - name: area_tecno
+        - name: data_lancamento
+        - name: produto_visivel
+        - name: produto_ativo
+        - name: showifnotavailable
+        - name: padronizacao_areas_tecno
+        - name: add_pagamento_original
+        - name: coupon
+        - name: id
+        - name: marketingTags
+        - name: utmCampaign
+        - name: utmMedium
+        - name: utmPartner
+        - name: utmSource
+        - name: utmiCampaign
+        - name: utmiPart
+        - name: utmipage
+
+    - name: APEX_UNIFICADO_2026_raw_ads_sources # apelido único do *source* no dbt
+      description: Tabelas RAW ingestadas planilhas próprias;
+      database: still-protocol-440221-k2 # projeto GCP
+      schema: APEX_UNIFICADO_2026 # dataset no BigQuery
+      tables:
+
+      - name: GA4_RAW
+        description: tabela com dados raw referentes aos ACESSOS no receptivo
+        columns:
+        - name: date
+        - name: session_campaign_name
+        - name: session_source__medium
+        - name: session_manual_ad_content
+        - name: sessions
+        - name: total_users
+        - name: new_users
+        - name: engaged_sessions
+        - name: average_session_duration
+        - name: average_session_length_sec
+        - name: views
+        - name: bounces
+        - name: idseed
+        - name: content
+        
+      - name: META_RAW
+        description: tabela com dados raw referentes aos dados de Meta
+        columns:
+        - name: plataforma
+        - name: placement
+        - name: date
+        - name: campaign_name
+        - name: ad_set_name
+        - name: promoted_post_name
+        - name: promoted_post_image_url
+        - name: url_destino
+        - name: utm_content
+        - name: cost
+        - name: impressions
+        - name: link_clicks
+        - name: post_engagements
+        - name: post_shares
+        - name: post_comments
+        - name: post_reactions
+        - name: page_subscribes
+        - name: video_play_actions
+        - name: video_watches_at_25
+        - name: video_watches_at_50
+        - name: video_watches_at_75
+        - name: video_watches_at_100
+        - name: content
+        - name: idseed
+
+      - name: LINKEDIN_RAW
+        description: tabela com dados raw referentes aos dados de Linkedin
+        columns:
+        - name: plataforma
+        - name: placement
+        - name: date
+        - name: campaign_name
+        - name: ad_set_name
+        - name: promoted_post_name
+        - name: promoted_post_image_url
+        - name: url_destino
+        - name: utm_content
+        - name: cost
+        - name: impressions
+        - name: link_clicks
+        - name: post_engagements
+        - name: post_shares
+        - name: post_comments
+        - name: post_reactions
+        - name: page_subscribes
+        - name: video_play_actions
+        - name: video_watches_at_25
+        - name: video_watches_at_50
+        - name: video_watches_at_75
+        - name: video_watches_at_100
+        - name: content
+        - name: idseed
+
+      - name: TIKTOK_RAW
+        description: tabela com dados raw referentes aos dados de Tiktok
+        columns:
+        - name: plataforma
+        - name: placement
+        - name: date
+        - name: campaign_name
+        - name: ad_set_name
+        - name: promoted_post_name
+        - name: promoted_post_image_url
+        - name: url_destino
+        - name: utm_content
+        - name: cost
+        - name: impressions
+        - name: link_clicks
+        - name: post_engagements
+        - name: post_shares
+        - name: post_comments
+        - name: post_reactions
+        - name: page_subscribes
+        - name: video_play_actions
+        - name: video_watches_at_25
+        - name: video_watches_at_50
+        - name: video_watches_at_75
+        - name: video_watches_at_100
+        - name: content
+        - name: idseed
+
+      - name: GOOGLE_RAW
+        description: tabela com dados raw referentes aos dados de Google
+        columns:
+        - name: plataforma
+        - name: placement
+        - name: date
+        - name: campaign_name
+        - name: ad_set_name
+        - name: promoted_post_name
+        - name: promoted_post_image_url
+        - name: url_destino
+        - name: utm_content
+        - name: cost
+        - name: impressions
+        - name: link_clicks
+        - name: post_engagements
+        - name: post_shares
+        - name: post_comments
+        - name: post_reactions
+        - name: page_subscribes
+        - name: video_play_actions
+        - name: video_watches_at_25
+        - name: video_watches_at_50
+        - name: video_watches_at_75
+        - name: video_watches_at_100
+        - name: content
+        - name: idseed
+
+      - name: ADSERVER_RAW
+        description: tabela com dados raw referentes aos dados de Adserver
+        columns:
+        - name: date
+        - name: campaign_name
+        - name: site_name
+        - name: format_name
+        - name: dimension
+        - name: type
+        - name: impression
+        - name: link_clicks
+        - name: video_play_actions
+        - name: video_watches_at_25
+        - name: video_watches_at_50
+        - name: video_watches_at_75
+        - name: video_watches_at_100
+        - name: viewables
+        - name: content
+        - name: idseed
+
+      - name: MATRIZ-DE-CONTEUDO_RAW
+        description: tabela com dados de criativos da campanha 
+        columns:
+        - name: veiculo
+        - name: valor_liquido
+        - name: campanha
+        - name: criativo
+        - name: status
+        - name: objetivo
+        - name: tipo
+        - name: tipo_de_compra
+        - name: url_criativo
+        - name: texto_de_apoio
+        - name: url_destino
+        - name: periodo
+        - name: url_parametrizada
+        - name: idseed
+        - name: conjunto
+        - name: content
+
+
+      - name: PLANEJADO_RAW
+        description: tabela com dados dE planejado
+        columns:
+        - name: aba_referencia
+        - name: mes
+        - name: id_veiculo
+        - name: rede
+        - name: veiculo
+        - name: idseed
+        - name: veiculo_dsp
+        - name: veiculo_inventario
+        - name: fonte_dados_principal
+        - name: fonte_dados_orcamento
+        - name: uf
+        - name: praca
+        - name: canal
+        - name: modelo_de_compra
+        - name: segmentacao
+        - name: objetivo
+        - name: tipo_de_compra
+        - name: formato
+        - name: total_ins
+        - name: valor_liquido
+        - name: valor_unitario
+        - name: data_inicio
+        - name: data_fim
+        - name: nome_campanha
+        - name: viewability_contratado
+        - name: secundagem_comprada
+        - name: obs
+        - name: tech_fee
+        - name: regra_de_negocio
+        - name: PI
+        - name: numero_projeto
+        - name: cliente
+        - name: flight_campanha
+
+
+    - name: SEBRAE_COMPRE_DO_PEQUENO_2025_raw_ads_sources # apelido único do *source* no dbt
+      description: Tabelas RAW ingestadas planilhas próprias;
+      database: still-protocol-440221-k2 # projeto GCP
+      schema: SEBRAE_COMPRE_DO_PEQUENO_2025 # dataset no BigQuery
+      tables:
+
+      - name: GA_RAW
+        description: tabela com dados raw referentes aos ACESSOS no receptivo
+        columns:
+        - name: date
+        - name: session_campaign_name
+        - name: session_source__medium
+        - name: session_manual_ad_content
+        - name: sessions
+        - name: total_users
+        - name: new_users
+        - name: active_users
+        - name: engaged_sessions
+        - name: average_session_duration
+        - name: average_session_length_sec
+        - name: views
+        - name: bounces
+        - name: IDSEED
+        - name: Content
+        
+      - name: ADSERVER_RAW 
+        description: tabela com dados referentes a Adserver
+        columns:
+        - name: campaign_id
+        - name: campaign_name
+        - name: campaign_start_datetime
+        - name: campaign_end_datetime
+        - name: placement_id
+        - name: placement_purchase_qty
+        - name: placement_name
+        - name: account_id
+        - name: account_name
+        - name: team_id
+        - name: team_name
+        - name: format_name
+        - name: format_size_width
+        - name: format_size_height
+        - name: site_id
+        - name: site_name
+        - name: site_website
+        - name: site_mediakit_url
+        - name: channel_descr
+        - name: channel_purchased_quantity
+        - name: purchase_type_format
+        - name: creative_id
+        - name: creative_active
+        - name: creative_redirect_url
+        - name: creative_delivery_order
+        - name: creative_delivery_limit
+        - name: creative_dates
+        - name: creative_has_file
+        - name: creative_deleted_at
+        - name: group_name
+        - name: blocklists
+        - name: unique_users
+        - name: impressions
+        - name: unique_impressions
+        - name: views
+        - name: unique_views
+        - name: clicks
+        - name: unique_clicks
+        - name: viewables
+        - name: errors
+        - name: starts
+        - name: firstquartiles
+        - name: midpoints
+        - name: thirdquartiles
+        - name: completes
+        - name: safeframes
+        - name: pixels
+        - name: viewables_starts
+        - name: viewables_firstquartiles
+        - name: viewables_midpoints
+        - name: viewables_thirdquartiles
+        - name: viewables_completes
+        - name: viewability
+        - name: ctr
+        - name: datetime
+        - name: IDSEED
+        - name: Content
+        - name: Inicio
+        - name: Fim
+      - name: META_RAW
+        description: tabela com dados raw referentes aos dados de Meta
+        columns:
+        - name: plataforma
+        - name: placement
+        - name: date
+        - name: campaign_name
+        - name: ad_set_name
+        - name: promoted_post_name
+        - name: promoted_post_image_url
+        - name: url_destino
+        - name: utm_content
+        - name: cost
+        - name: impressions
+        - name: link_clicks
+        - name: engajamento
+        - name: video_play_actions
+        - name: video_watches_at_25
+        - name: video_watches_at_50
+        - name: video_watches_at_75
+        - name: video_watches_at_100
+        - name: idseed
+        - name: content
+
+      - name: PINTEREST_RAW
+        description: tabela com dados raw referentes a PERFORMANCE de pinterest
+        columns:
+        - name: plataforma
+        - name: placement
+        - name: date
+        - name: campaign_name
+        - name: ad_set_name
+        - name: promoted_post_name
+        - name: promoted_post_image_url
+        - name: url_destino
+        - name: utm_content
+        - name: cost
+        - name: impressions
+        - name: link_clicks
+        - name: engajamento
+        - name: video_play_actions
+        - name: video_watches_at_25
+        - name: video_watches_at_50
+        - name: video_watches_at_75
+        - name: video_watches_at_100
+        - name: idseed
+        - name: content
+
+      - name: TIKTOK_RAW
+        description: tabela com dados raw referentes a PERFORMANCE de TIKTOK
+        columns:
+        - name: plataforma
+        - name: placement
+        - name: date
+        - name: campaign_name
+        - name: ad_set_name
+        - name: promoted_post_name
+        - name: promoted_post_image_url
+        - name: utm_content
+        - name: url_destino
+        - name: cost
+        - name: impressions
+        - name: link_clicks
+        - name: post_engagements
+        - name: post_shares
+        - name: post_comments
+        - name: post_reactions
+        - name: page_subscribes
+        - name: video_play_actions
+        - name: video_watches_at_25
+        - name: video_watches_at_50
+        - name: video_watches_at_75
+        - name: video_watches_at_100
+        - name: idseed
+        - name: content
+
+      - name: GOOGLE_ADS_RAW
+        description: tabela com dados raw referentes a PERFORMANCE de google_ads
+        columns:
+        - name: plataforma
+        - name: placement
+        - name: date
+        - name: campaign_name
+        - name: ad_set_name
+        - name: promoted_post_name
+        - name: promoted_post_image_url
+        - name: url_destino
+        - name: cost
+        - name: impressions
+        - name: link_clicks
+        - name: engajamento
+        - name: video_play_actions
+        - name: video_watches_at_25
+        - name: video_watches_at_50
+        - name: video_watches_at_75
+        - name: video_watches_at_100
+        - name: idseed
+        - name: content
+
+      - name: MATRIZ-DE-CONTEUDO_RAW
+        description: tabela com dados de criativos da campanha 
+        columns:
+        - name: status
+        - name: veiculo
+        - name: criativo_imagem
+        - name: campanha
+        - name: texto_de_apoio
+        - name: pecas
+        - name: objetivo
+        - name: tipo_de_compra
+        - name: status_
+        - name: situacao
+        - name: formato
+        - name: data_de_inicio
+        - name: url
+        - name: url_parametrizada
+        - name: link_das_publicacoes
+        - name: campanha_
+        - name: conjunto
+        - name: criativo
+        - name: Content
+
+      - name: PLANEJADO_RAW
+        description: tabela com dados dE planejado
+        columns:
+        - name: aba_referencia
+        - name: veiculo
+        - name: veiculo_dash
+        - name: idseed
+        - name: canal
+        - name: formato
+        - name: periodo
+        - name: tipo_de_compra
+        - name: estimativa_de_entrega
+        - name: valor_total_negociado
+        - name: valor_total_ajustado
+        - name: valor_unitario
+        - name: data_de_inicio
+        - name: data_fim
+        - name: campanha
+
+      - name: ADP_RAW
+        description: tabela com dados raw referentes as parametrizacoes implementadas via adserver.
+        columns:
+        - name: ID_SERVER
+        - name: FORMAT_ID
+        - name: PLACEMENT_ID
+        - name: STATUS_ID
+        - name: STATUS
+        - name: VEICULO
+        - name: CANAL_OU_SEGMENTACAO
+        - name: LINHA_CRIATIVA
+        - name: COMPLEXIDADE
+        - name: NOME_DO_FORMATO
+        - name: DIMENSAO
+        - name: EXPANDIDA
+        - name: PESO_RICH
+        - name: PESO_GIF
+        - name: LOOP
+        - name: TEMPO
+        - name: COMPRA
+        - name: QUANT
+        - name: PLATAFORMA
+        - name: TECNOLOGIA_UTILIZADA
+        - name: RECURSOS_TECNOLOGICOS
+        - name: RECURSOS_DE_ACESSIBILIDADE
+        - name: PERIODO_DE_VEICULACAO
+        - name: UTILIZACAO
+        - name: PRACA
+        - name: VIDEO
+        - name: MEDIA_KIT
+        - name: OBSERVACAO
+        - name: URL
+        - name: tipo_de_compra
+        - name: IDSEEED
+        - name: Content
+        - name: Inicio
+        - name: Fim
+
+      - name: ADSERVER_CUSTOS_RAW
+        description: tabela de custos de adserver
+        columns:
+        - name: IDSEED
+        - name: Content
+        - name: impressions
+        - name: datetime
+        - name: custo
+
+    - name: SESI_MATRICULAS_2025_raw_ads_sources # apelido único do *source* no dbt
+      description: Tabelas RAW ingestadas planilhas próprias, de parceiros e artplan;
+      database: still-protocol-440221-k2 # projeto GCP
+      schema: SESI_MATRICULAS_2025 # dataset no BigQuery
+      tables:
+
+      - name: RANGE_RAW
+        description: tabela com dados raw referentes a entrega de range app
+        columns:
+          - name: date
+          - name: campaign
+          - name: line_item
+          - name: creative
+          - name: creative_size
+          - name: objetivo
+          - name: compra
+          - name: impressions
+          - name: clicks
+          - name: click_rate_ctr
+          - name: active_view_measurable_impressions
+          - name: active_view_viewable_impressions
+          - name: active_view_rate_viewable_impressions
+          - name: starts_video
+          - name: first_quartile_views_video
+          - name: midpoint_views_video
+          - name: third_quartile_views_video
+          - name: complete_views_video
+          - name: cost
+          - name: seed
+
+      - name: GA_RAW
+        description: tabela com dados raw referentes aos ACESSOS no receptivo
+        columns:
+          - name: date
+          - name: session_campaign_name
+          - name: session_source_medium
+          - name: session_manual_ad_content
+          - name: sessions
+          - name: total_users
+          - name: new_users
+          - name: active_users
+          - name: engaged_sessions
+          - name: average_session_duration
+          - name: average_session_length_sec
+          - name: views
+          - name: bounces
+
+      - name: GOOGLE_RAW
+        description: tabela com dados raw referentes a performance de google ads
+        columns:
+          - name: date
+          - name: campaign_name
+          - name: ad_group_name
+          - name: final_url
+          - name: impressions
+          - name: clicks
+          - name: ctr
+          - name: video_views
+          - name: watch_25_views
+          - name: watch_50_views
+          - name: watch_75_views
+          - name: watch_100_views
+          - name: cost
+          - name: idseed
+          - name: content
+
+      - name: META_RAW
+        description: tabela com dados raw referentes a performance de meta
+        columns:
+          - name: date
+          - name: campaign_name
+          - name: ad_set_name
+          - name: ad_name
+          - name: publisher_platform
+          - name: platform_position
+          - name: destination_url
+          - name: link_to_promoted_post
+          - name: link_to_promoted_instagram_post
+          - name: reach
+          - name: impressions
+          - name: clicks_all
+          - name: ctr_all
+          - name: link_clicks
+          - name: post_engagements
+          - name: thruplay_actions
+          - name: video_watches_at_25
+          - name: video_watches_at_50
+          - name: video_watches_at_75
+          - name: video_watches_at_100
+          - name: video_play_actions
+          - name: cost
+          - name: idseed
+          - name: content
+
+      - name: MATRIZ_DE_CONTEUDO_RAW
+        description: tabela com dados raw referentes a matriz de conteudo
+        columns:
+          - name: criativo
+          - name: veiculo
+          - name: formato
+          - name: inicio_de_veiculacao
+          - name: final_de_veiculacao
+          - name: tipo_de_compra
+          - name: segmentacao
+          - name: status_da_peca
+          - name: objetivo
+          - name: praca
+          - name: link_da_publicacao_material
+          - name: link_de_destino
+          - name: link_parametrizado
+          - name: link_do_post_
+          - name: link_do_wrike_
+          - name: campanha
+          - name: conjunto
+          - name: criativo_
+
+      - name: PLANEJADO_RAW
+        description: tabela com dados raw referentes aos ACESSOS no receptivo
+        columns:
+          - name: aba_referencia
+          - name: veiculo
+          - name: veiculo_dash
+          - name: idseed
+          - name: canal
+          - name: formato
+          - name: periodo
+          - name: tipo_de_compra
+          - name: estimativa_de_entrega
+          - name: valor_total_ajustado
+          - name: valor_unitario
+          - name: data_de_inicio
+          - name: data_fim
+          - name: campanha
+
+    - name: bb_brandformance_raw_ads_sources # apelido único do *source* no dbt
+      description: Tabelas RAW ingestadas via Supermetrics
+      database: still-protocol-440221-k2 # projeto GCP
+      schema: BB_BRANDFORMANCE_2025 # dataset no BigQuery
+      tables:
+      - name: PRIME-VIDEO_RAW
+        description: tabela com dados de prime videos enviados pelo veículo
+        columns:
+          - name: date
+          - name: advertiser_account_name
+          - name: advertiser_account_id
+          - name: campaign_name
+          - name: campaign_id
+          - name: ad_group_name
+          - name: ad_group_id
+          - name: ad_name
+          - name: ad_id
+          - name: total_cost
+          - name: impressions
+          - name: ecpm
+          - name: video_start
+          - name: video_first_quartile
+          - name: video_midpoint
+          - name: video_third_quartile
+          - name: video_complete
+          - name: video_completion_rate
+          - name: ecpvc
+          - name: seed
+
+      - name: DOUBLEVERIFY-YT-RAW-RAW
+        description: tabela com dados do double-verify META
+        columns:
+          - name: date
+          - name: platform_campaign_name
+          - name: platform_campaign_group_name
+          - name: platform_account_name
+          - name: platform_placement_type
+          - name: viewability_eligible_impressions
+          - name: viewability_measured_impressions
+          - name: viewable_impressions
+          - name: completed_impressions
+          - name: unique_incidents
+          - name: monitored_ads
+          - name: seed
+          - name: Precisa de ma
+      
+      - name: DV-RAW
+        description: tabela com dados do double-verify META
+        columns:
+          - name: item_de_linha
+          - name: data
+          - name: total_de_impressoes
+          - name: total_de_cliques
+          - name: receita_total
+          - name: ecpm_medio_total
+          - name: ctr_total
+          - name: porcentagem_do_total_de_impressoes_visiveis_do_active_view
+          - name: seed
+      
+      - name: DOUBLEVERIFY-TIKTOK
+        description: tabela com dados do double-verify META
+        columns:
+          - name: date
+          - name: campaign_name
+          - name: ad_set_name
+          - name: ad_name
+          - name: brand_suitability_measured_ads
+          - name: unique_incidents
+          - name: viewability_measured_impressions
+          - name: viewable_impressions
+          - name: seed
+          
+      - name: DOUBLEVERIFY-META_RAW
+        description: tabela com dados do double-verify META
+        columns:
+          - name: date
+          - name: campaign_name
+          - name: ad_set_name
+          - name: ad_name
+          - name: placement_type
+          - name: eligible_impressions
+          - name: measured_impressions
+          - name: total_net_viewable_impressions
+          - name: viewable_impressions
+          - name: completed_impressions
+          - name: unique_incidents
+          - name: monitored_ads
+          - name: seed
+
+      - name: DOUBLEVERIFY-ADSERVER_RAW
+        description: tabela com dados do double-verify adserver
+        columns:
+          - name: date
+          - name: campaign
+          - name: advertiser_name
+          - name: brand
+          - name: placement_name
+          - name: monitored_ads
+          - name: measured_impressions
+          - name: viewable_impressions
+          - name: brand_suitable_ads
+          - name: brand_suitability_incidents
+          - name: seed
+
+      - name: DOUBLEVERIFY-LINKEDIN_RAW
+        description: tabela com dados do double-verify linkedin
+        columns:
+          - name: date
+          - name: platform_campaign_name
+          - name: platform_campaign_group_name
+          - name: platform_account_name
+          - name: platform_placement_type
+          - name: viewability_eligible_impressions
+          - name: viewability_measured_impressions
+          - name: viewable_impressions
+          - name: completed_impressions
+          - name: unique_incidents
+          - name: monitored_ads
+          - name: seed
+
+      - name: GA-SEM-ORIGEM_RAW
+        description: tabela com dados de google analytics
+        columns:
+          - name: date
+          - name: sessions
+          - name: total_users
+          - name: new_users
+          - name: engaged_sessions
+          - name: average_session_duration
+          - name: average_session_length
+          - name: views
+          - name: bounces
+
+      - name: GA_RAW
+        description: tabela com dados de google analytics
+        columns:
+          - name: date
+          - name: session_campaign_name
+          - name: session_source_medium
+          - name: session_manual_ad_content
+          - name: sessions
+          - name: total_users
+          - name: new_users
+          - name: engaged_sessions
+          - name: average_session_duration
+          - name: average_session_length
+          - name: views
+          - name: bounces
+
+  
+      - name: TIKTOK-ALCANCE_RAW
+        description: tabela com dados de alcance do  META
+        columns:
+          - name: campanha
+          - name: utm_content
+          - name: alcance
+          - name: idseed
+          - name: content
+
+      - name: META-ALCANCE_RAW
+        description: tabela com dados de alcance do  META
+        columns:
+          - name: campanha
+          - name: utm_content
+          - name: alcance
+          - name: idseed
+          - name: content
+      
+      - name: LINKEDIN-ALCANCE_RAW
+        description: tabela com dados de alcance do  linkedin
+        columns:
+          - name: campanha
+          - name: utm_content
+          - name: alcance
+          - name: idseed
+          - name: content
+
+      - name: TAXONOMIA_RAW
+        description: tabela com dados do PM
+        columns:
+          - name: advertiser
+          - name: advertiser_abreviado
+          - name: nome_projeto
+          - name: argumento
+          - name: numero_acao
+          - name: numero_projeto
+          - name: nome_campanha
+          - name: status
+          - name: idparametro
+          - name: content
+          - name: idseed
+          - name: veiculo_plataforma
+          - name: tipo_inventario
+          - name: tipo_de_compra
+          - name: optimization_io
+          - name: targeting_macro
+          - name: detalhamento_segmentacao
+          - name: praca
+          - name: canal
+          - name: agencia
+          - name: mes_referencia
+          - name: optimization_li
+          - name: tipo_de_midia
+          - name: estrategia
+          - name: tecnologia_adserver
+          - name: formato_criativo
+          - name: dimensao
+          - name: dispositivo
+          - name: linha_criativa
+          - name: conteudo_da_peca
+          - name: data_prevista_inicio
+          - name: data_prevista_fim
+          - name: insertion_order_dsp
+          - name: line_item_dsp
+          - name: contagem_caracteres
+          - name: placement_cm
+          - name: n_caracteres
+          - name: creative_dsp
+          - name: url_destino
+          - name: url_parametrizada
+          - name: id_anuncio
+          - name: id_anuncio_
+
+      - name: PLANEJADO_RAW
+        description: tabela com dados do PM
+        columns:
+          - name: aba_referencia
+          - name: mes
+          - name: id_veiculo
+          - name: rede
+          - name: veiculo_dash
+          - name: idseed
+          - name: veiculo
+          - name: dsp
+          - name: veiculo_inventario
+          - name: fonte_de_dados_principal_impressoes_cliques_etc
+          - name: fonte_de_dados_orcamento_executado
+          - name: uf
+          - name: praca
+          - name: canal
+          - name: modelo_de_compra
+          - name: segmentacao
+          - name: objetivo
+          - name: tipo_de_compra
+          - name: formato
+          - name: total_ins
+          - name: valor_liquido
+          - name: valor_unitario
+          - name: data_de_inicio
+          - name: data_fim
+          - name: campanha
+
+      - name: CM-ALCANCE-CAMPANHA_RAW
+        description: tabela com dados raw referentes ao alcance no CM
+        columns:
+          - name: campanha
+          - name: utm_content
+          - name: country
+          - name: alcance
+
+      - name: CM-ALCANCE-DIARIO_RAW
+        description: tabela com dados DIARIO raw referentes ao alcance no CM
+        columns:
+          - name: date
+          - name: campaign_name
+          - name: utm_content
+          - name: pais
+          - name: reach
+          - name: seed
+
+      - name: CM_BRANDSAFETY_MEASURABLE_IMPRESSIONS_RAW
+        description: tabela com dados brandsafety raw referentes as impressoes visiveis no CM
+        columns:
+          - name: date
+          - name: campaign
+          - name: placement
+          - name: active_view_viewable_impressions
+          - name: active_view_measurable_impressions
+          - name: classified_impressions
+          - name: seed
+
+      - name: CM_BRANDSAFETY_VERIFICATION_RAW
+        description: tabela com dados brandsafety raw referentes as impressoes invalidas no CM
+        columns:
+          - name: date
+          - name: campaign
+          - name: placement
+          - name: impressions
+          - name: invalid_impressions
+          - name: seed
+
+
+
+      - name: TIKTOK_RAW
+        description: tabela com dados de performance no CM
+        columns:
+          - name: plataforma
+          - name: placement
+          - name: date
+          - name: campaign_name
+          - name: ad_set_name
+          - name: promoted_post_name
+          - name: promoted_post_image_url
+          - name: url_destino
+          - name: utm_content
+          - name: cost
+          - name: impressions
+          - name: link_clicks
+          - name: post_engagements
+          - name: post_shares
+          - name: post_comments
+          - name: post_reactions
+          - name: page_subscribes
+          - name: video_play_actions
+          - name: video_watches_at_25
+          - name: video_watches_at_50
+          - name: video_watches_at_75
+          - name: video_watches_at_100
+          - name: content
+          - name: seed
+
+      - name: META_RAW
+        description: tabela com dados de performance no CM
+        columns:
+          - name: plataforma
+          - name: placement
+          - name: date
+          - name: campaign_name
+          - name: ad_set_name
+          - name: promoted_post_name
+          - name: promoted_post_image_url
+          - name: url_destino
+          - name: utm_content
+          - name: cost
+          - name: impressions
+          - name: link_clicks
+          - name: engajamento
+          - name: video_play_actions
+          - name: video_watches_at_25
+          - name: video_watches_at_50
+          - name: video_watches_at_75
+          - name: video_watches_at_100
+          - name: idseed
+          - name: content
+
+      - name: LINKEDIN_RAW
+        description: tabela com dados de performance no CM
+        columns:
+          - name: plataforma
+          - name: placement
+          - name: date
+          - name: campaign_name
+          - name: ad_set_name
+          - name: promoted_post_name
+          - name: promoted_post_image_url
+          - name: url_destino
+          - name: utm_content
+          - name: cost
+          - name: impressions
+          - name: link_clicks
+          - name: engajamento
+          - name: video_play_actions
+          - name: video_watches_at_25
+          - name: video_watches_at_50
+          - name: video_watches_at_75
+          - name: video_watches_at_100
+          - name: idseed
+          - name: content
+
+      - name: CM_RAW
+        description: tabela com dados de performance no CM
+        columns:
+          - name: plataforma
+          - name: date
+          - name: campaign_name
+          - name: promoted_post_name
+          - name: placement
+          - name: cost
+          - name: impressions
+          - name: link_clicks
+          - name: video_play_actions
+          - name: video_watches_at_25_
+          - name: video_watches_at_50_
+          - name: video_watches_at_75_
+          - name: video_watches_at_100_
+          - name: seed
+
+    - name: sebrae_acredita_raw_ads_sources # apelido único do *source* no dbt
+      description: Tabelas RAW ingestadas via Supermetrics
+      database: still-protocol-440221-k2 # projeto GCP
+      schema: sebrae_acredita_raw_data # dataset no BigQuery
+      tables:
+
+      - name: GA_EVENTOS
+        description: tabela com dados raw referentes aos eventos no receptivo
+        columns:
+          - name: Date
+          - name: Source___medium
+          - name: Campaign
+          - name: Ad_content
+          - name: Nome_Evento
+          - name: Event
+
+      - name: GA_RAW
+        description: tabela com dados raw referentes aos acessos no receptivo
+        columns:
+          - name: Date
+          - name: Session_source_medium
+          - name: Session_manual_campaign_name
+          - name: Session_manual_ad_content
+          - name: Country
+          - name: Region
+          - name: Sessions
+          - name: Total_users
+          - name: New_users
+          - name: Bounces
+          - name: Views
+          - name: Average_session_duration
+          - name: Active_users
+          - name: Engaged_Sessions
+
+      - name: GOOGLE_ADS_RAW
+        description: tabela com dados raw a performance de google ads na campanha sebrae_acredita
+        columns:
+          - name: Placement
+          - name: Date
+          - name: Account
+          - name: Campaign_name
+          - name: Ad_set_name
+          - name: Promoted_post_name
+          - name: Campaign_objective
+          - name: Promoted_post_name
+          - name: Campaign_objective
+          - name: Promoted_post_image_URL
+          - name: Url_Destino
+          - name: Cost
+          - name: Impressions
+          - name: Link_clicks
+          - name: Post_reactions
+          - name: Post_comments
+          - name: Post_shares
+          - name: Video_play_actions
+          - name: Video_watches_at_25_
+          - name: Video_watches_at_50_
+          - name: Video_watches_at_75_
+          - name: Video_watches_at_100_
+          - name: Reach
+
+      - name: LINKEDIN
+        description: tabela com dados raw a performance de LINKEDIN na campanha sebrae_acredita
+        columns:
+          - name: Date
+          - name: Account
+          - name: Campaign_name
+          - name: Ad_set_name
+          - name: Promoted_post_name
+          - name: Campaign_objective
+          - name: Promoted_post_image_URL
+          - name: Url_Destino
+          - name: Cost
+          - name: Impressions
+          - name: Link_clicks
+          - name: Post_reactions
+          - name: Post_comments
+          - name: Post_shares
+          - name: Video_play_actions
+          - name: Video_watches_at_25_
+          - name: Video_watches_at_50_
+          - name: Video_watches_at_75_
+          - name: Video_watches_at_100_
+          - name: Reach
+
+      - name: META_RAW_DATA
+        description: tabela com dados raw a performance de META na campanha sebrae_acredita
+        columns:
+          - name: Date
+          - name: Campaign_name
+          - name: Ad_set_name
+          - name: Ad_name
+          - name: Publisher_platform
+          - name: Ad_creative_image_URL
+          - name: Link_to_promoted_Instagram_post
+          - name: Destination_URL
+          - name: Placement
+          - name: Reach
+          - name: Impressions
+          - name: Clicks__all_
+          - name: CTR__all_
+          - name: Actions
+          - name: Post_engagements
+          - name: Post_reactions
+          - name: Post_shares
+          - name: Post_comments
+          - name: Post_Saves
+          - name: Video_play_actions
+          - name: Video_watches_at_25_
+          - name: Video_watches_at_50_
+          - name: Video_watches_at_75_
+          - name: Video_watches_at_100_
+          - name: Link_clicks
+          - name: Cost
+
+      - name: PLANEJADO_RAW
+        description: tabela com dados do PM da campanha sebrae_acredita
+        columns:
+          - name: Aba_referencia
+          - name: VEICULO
+          - name: VEICULO_DASH
+          - name: IDSEED
+          - name: CANAL
+          - name: FORMATO
+          - name: PERIODO
+          - name: TIPO_DE_COMPRA
+          - name: ESTIMATIVA_DE_ENTREGA
+          - name: VALOR_TOTAL_AJUSTADO
+          - name: Valor_unitario
+          - name: Data_de_inicio
+          - name: Data_fim
+
+      - name: MATRIZ_CONTEUDO_RAW
+        description: tabela com dados de criativos da campanha sebrae_acredita
+        columns:
+          - name: string_field_0
+          - name: string_field_1
+          - name: string_field_2
+          - name: string_field_3
+          - name: string_field_4
+          - name: string_field_5
+          - name: string_field_6
+          - name: string_field_7
+          - name: string_field_8
+          - name: string_field_9
+          - name: string_field_10
+          - name: string_field_11
+          - name: string_field_12
+          - name: string_field_13
+          - name: string_field_14
+          - name: string_field_15
+          - name: string_field_16
+          - name: string_field_17
+          - name: string_field_18
+
+      - name: TIKTOK_RAW
+        description: tabela com dados raw Da performance de TIKTOK na campanha sebrae_acredita
+        columns:
+          - name: Date
+          - name: Account_name
+          - name: Campaign_name
+          - name: Campaign_group_name
+          - name: Creative_title
+          - name: Campaign_objective_type
+          - name: Creative_thumbnail_URL
+          - name: Creative_destination_URL
+          - name: Total_spent
+          - name: Impressions
+          - name: Landing_page_clicks
+          - name: Likes
+          - name: Comments
+          - name: Shares
+          - name: Video_starts
+          - name: Video_views_at_25_
+          - name: Video_views_at_50_
+          - name: Video_views_at_75_
+          - name: Video_completions
+          - name: Reach
+
+      - name: ADP_RAW
+        description: tabela com dados DO adp Da campanha sebrae_acredita
+        columns:
+          - name: Cliente
+          - name: Name
+          - name: Data_inicio
+          - name: Data_fim
+          - name: Ve__culo
+          - name: Segmanta____o
+          - name: Formatos
+          - name: dimensions
+          - name: linha
+          - name: compra
+          - name: quantidade
+          - name: complexidade
+          - name: peso_rick
+          - name: peso_gif
+          - name: tempo
+          - name: plataforma
+          - name: tec_utilizada
+          - name: tec_recursos
+          - name: video
+          - name: url_parametrizada
+
+      - name: ADSERVER_DISPLAY_RAW
+        description: tabela com dados raw Da performance de ADSERVER_DISPLAY na campanha sebrae_acredita
+        columns:
+          - name: id
+          - name: template_id
+          - name: vehicle_id
+          - name: campaign_id
+          - name: date
+          - name: app_id
+          - name: publisher_name
+          - name: placement_id
+          - name: name
+          - name: campaign_name
+          - name: impressions
+          - name: clicks
+          - name: channel
+          - name: format
+          - name: format_name
+          - name: format_width
+          - name: format_height
+          - name: dimension
+          - name: vieweables
+          - name: start
+          - name: firstQuartile
+          - name: midpoint
+          - name: thirdQuartile
+          - name: complete
+          - name: pause
+          - name: redirect_url
+          - name: details
+          - name: ctr
+          - name: va
+          - name: vtr
+          - name: percent_first
+          - name: percent_mid
+          - name: percent_third
+          - name: percent_complete
+          - name: created_at
+          - name: updated_at
+          - name: type
+          - name: creative_line
+          - name: publisher_id
+          - name: SEED
+          - name: CONTENT
+          - name: TIPO_DE_COMPRA
+          - name: RESULTADO
+          - name: INVESTIMENTO
+
+      - name: ADSERVER_VAST_RAW
+        description: tabela com dados raw Da performance de ADSERVER_VAST na campanha sebrae_acredita
+        columns:
+          - name: id
+          - name: template_id
+          - name: ad_item_id
+          - name: vehicle_id
+          - name: campaign_id
+          - name: date
+          - name: app_id
+          - name: publisher_name
+          - name: placement_id
+          - name: name
+          - name: campaign_name
+          - name: impressions
+          - name: clicks
+          - name: channel
+          - name: format
+          - name: format_name
+          - name: format_width
+          - name: format_height
+          - name: dimension
+          - name: vieweables
+          - name: start
+          - name: firstQuartile
+          - name: midpoint
+          - name: thirdQuartile
+          - name: complete
+          - name: pause
+          - name: redirect_url
+          - name: details
+          - name: ctr
+          - name: va
+          - name: vtr
+          - name: percent_first
+          - name: percent_mid
+          - name: percent_third
+          - name: percent_complete
+          - name: created_at
+          - name: updated_at
+          - name: type
+          - name: creative_line
+          - name: publisher_id
+          - name: SEED
+          - name: CONTENT
+          - name: RESULTADO
+          - name: INVESTIMENTO
+
+    - name: BB_AQUISICAO_RELACIONAMENTO_raw_ads_sources # apelido único do *source* no dbt
+      description: Tabelas RAW ingestadas via Supermetrics
+      database: still-protocol-440221-k2 # projeto GCP
+      schema: BB_AQUISICAO_2025 # dataset no BigQuery
+      tables:
+
+      - name: DOUBLE_VERIFY_LINKEDIN_RAW
+        description: tabela com dados de brandsafety double verify
+        columns:
+          - name: Date
+          - name: Platform Campaign Name
+          - name: Platform Campaign Group Name
+          - name: Platform Ad Name
+          - name: Platform Placement Type
+          - name: Viewability Eligible Impressions
+          - name: Viewability Measured Impressions
+          - name: Viewable Impressions
+          - name: Completed Impressions
+          - name: Unique Incidents
+          - name: Monitored Ads
+          - name: SEED
+
+      - name: DOUBLE_VERIFY_TIKTOK_RAW
+        description: tabela com dados de brandsafety double verify
+        columns:
+          - name: Date
+          - name: Campaign name
+          - name: Ad set name
+          - name: Ad name
+          - name: Brand suitability measured ads
+          - name: Unique incidents
+          - name: Viewability measured impressions
+          - name: Viewable impressions
+          - name: SEED
+
+      - name: DOUBLE_VERIFY_ADSERVER_RAW
+        description: tabela com dados de brandsafety double verify
+        columns:
+          - name: Date
+          - name: Campaign
+          - name: Advertiser name
+          - name: Brand
+          - name: Placement name
+          - name: Monitored ads
+          - name: Measured impressions
+          - name: Viewable impressions
+          - name: Brand suitable ads
+          - name: Brand suitability incidents
+          - name: SEED
+
+      - name: DOUBLE_VERIFY_META_RAW
+        description: tabela com dados de brandsafety double verify
+        columns:
+          - name: Date
+          - name: Campaign name
+          - name: Ad set name
+          - name: Ad name
+          - name: Placement type
+          - name: Eligible impressions
+          - name: Measured impressions
+          - name: Total net viewable impressions
+          - name: Viewable impressions
+          - name: Completed impressions
+          - name: Unique incidents
+          - name: Monitored ads
+          - name: SEED
+
+      - name: CM-ALCANCE-CAMPANHA_RAW
+        description: tabela com dados de alcance extraidos do cm
+        columns:
+          - name: string_field_0
+          - name: string_field_1
+          - name: string_field_2
+          - name: string_field_3
+          - name: string_field_4
+          - name: string_field_5
+      - name: CM-ALCANCE-DIARIO_RAW
+        description: tabela com dados diarios de alcance extraidos do cm
+        columns:
+          - name: Date
+          - name: Campaign_name
+          - name: UTM_CONTENT
+          - name: PAIS
+          - name: Reach
+          - name: SEED
+          - name: CONTENT
+      - name: CM_ACTIVEVIEW_VERIFICATION_RAW
+        description: tabela com dados diarios de verification extraidos do cm
+        columns:
+          - name: Date
+          - name: Campaign
+          - name: Placement
+          - name: Active_View__Viewable_Impressions
+          - name: Active_View__Measurable_Impressions
+          - name: Classified_Impressions
+          - name: SEED
+          - name: CONTENT
+      - name: CM_IMPRESSOES_INVALIDAS_RAW
+        description: tabela com dados diarios de impressoes invalidas extraidos do cm
+        columns:
+          - name: Date
+          - name: Campaign
+          - name: Placement
+          - name: Impressions
+          - name: Invalid_impressions
+          - name: SEED
+          - name: CONTENT
+
+      - name: CM_RAW
+        description: tabela com dados diarios de impressoes invalidas extraidos do cm
+        columns:
+          - name: Plataforma
+          - name: Date
+          - name: Campaign_name
+          - name: Promoted_post_name
+          - name: Placement
+          - name: Cost
+          - name: Impressions
+          - name: Link_clicks
+          - name: Video_play_actions
+          - name: Video_watches_at_25_
+          - name: Video_watches_at_50_
+          - name: Video_watches_at_75_
+          - name: Video_watches_at_100_
+          - name: SEED
+          - name: CONTENT
+
+      - name: GA_RAW
+        description: tabela com dados diarios de ga extraidos do ga4 com origens
+        columns:
+          - name: Date
+          - name: session_campaign_name
+          - name: session_source_medium
+          - name: session_manual_ad_content
+          - name: page_path
+          - name: sessions
+          - name: total_users
+          - name: new_users
+          - name: engaged_sessions
+          - name: average_session_duration
+          - name: average_session_length_sec_
+          - name: views
+          - name: bounces
+
+      - name: GA_2_RAW
+        description: tabela com dados diarios de ga extraidos do ga4 com origens
+        columns:
+          - name: Date
+          - name: session_campaign_name
+          - name: session_source_medium
+          - name: session_manual_ad_content
+          - name: sessions
+          - name: total_users
+          - name: new_users
+          - name: engaged_sessions
+          - name: average_session_duration
+          - name: average_session_length_sec
+          - name: views
+          - name: bounces
+          - name: page_path
+
+      - name: GA_DIARIO_2
+        description: tabela com dados diarios de ga extraidos do ga4 SEM ORIGENS DO SEGUNDO RECEPTIVO
+        columns:
+          - name: Date
+          - name: sessions
+          - name: total_users
+          - name: new_users
+          - name: engaged_sessions
+          - name: average_session_duration
+          - name: average_session_length_sec
+          - name: views
+          - name: bounces
+
+      - name: DV_RAW
+        description: tabela com dados diarios de DV360
+        columns:
+          - name: plataforma
+          - name: date
+          - name: campaign_name
+          - name: promoted_post_name
+          - name: placement
+          - name: INSERTION_ORDER
+          - name: cost
+          - name: Impressions
+          - name: link_clicks
+          - name: video_play_actions
+          - name: video_watches_at_25_
+          - name: video_watches_at_50_
+          - name: video_watches_at_75_
+          - name: video_watches_at_100_
+          - name: SEED
+          - name: CONTENT
+
+      - name: GA_BIG_NUMBERS
+        description: tabela com dados big numbers de ga extraidos do ga4
+        columns:
+          - name: string_field_0
+          - name: double_field_1
+
+      - name: GA_DIARIO_RAW
+        description: tabela com dados diarios de ga extraidos do ga4 sem origens
+        columns:
+          - name: Date
+          - name: Sessions
+          - name: Total_users
+          - name: New_users
+          - name: Engaged_sessions
+          - name: Average_session_duration
+          - name: Average_session_length__sec_
+          - name: Views
+          - name: Bounces
+
+      - name: LINKEDIN-ALCANCE-CAMPANHA
+        description: tabela com dados de alcance da campanha extraidos do linkedin
+        columns:
+          - name: CAMPANHA
+          - name: UTM_CONTENT
+          - name: ALCANCE
+          - name: SEED
+          - name: CONTENT
+
+      - name: LINKEDIN-ALCANCE-DIARIO_RAW
+        description: tabela com dados de alcance diario da campanha extraidos do linkedin
+        columns:
+          - name: Date
+          - name: Campaign_name
+          - name: utm_content
+          - name: Reach
+          - name: SEED
+          - name: CONTENT
+
+      - name: LINKEDIN_RAW
+        description: tabela com dados de performance diario da campanha extraidos do linkedin
+        columns:
+          - name: Date
+          - name: Campaign_name
+          - name: Ad_set_name
+          - name: Promoted_post_name
+          - name: Promoted_post_image_URL
+          - name: Url_Destino
+          - name: utm_content
+          - name: Cost
+          - name: Impressions
+          - name: Link_clicks
+          - name: Engajamento
+          - name: Video_play_actions
+          - name: Video_watches_at_25_
+          - name: Video_watches_at_50_
+          - name: Video_watches_at_75_
+          - name: Video_watches_at_100_
+          - name: SEED
+          - name: CONTENT
+
+      - name: META-ALCANCE-CAMPANHA_RAW
+        description: tabela com dados de alcance da campanha extraidos de meta
+        columns:
+          - name: string_field_0
+          - name: string_field_1
+          - name: string_field_2
+          - name: string_field_3
+          - name: string_field_4
+
+      - name: META-ALCANCE-DIARIO_RAW
+        description: tabela com dados de alcance diario da campanha extraidos de meta
+        columns:
+          - name: Date
+          - name: Campaign_name
+          - name: UTM_CONTENT
+          - name: Reach
+          - name: SEED
+          - name: CONTENT
+      - name: META_RAW
+        description: tabela com dados de performance diario da campanha extraidos de meta
+        columns:
+          - name: Plataforma
+          - name: Placement
+          - name: Date
+          - name: Campaign_name
+          - name: Ad_set_name
+          - name: Promoted_post_name
+          - name: Promoted_post_image_URL
+          - name: Url_Destino
+          - name: utm_content
+          - name: Cost
+          - name: Impressions
+          - name: Link_clicks
+          - name: Engajamento
+          - name: Video_play_actions
+          - name: Video_watches_at_25_
+          - name: Video_watches_at_50_
+          - name: Video_watches_at_75_
+          - name: Video_watches_at_100_
+          - name: SEED
+          - name: CONTENT
+
+      - name: PLANEJADO_RAW
+        description: tabela com dados de performance diario da campanha extraidos de meta
+        columns:
+          - name: Aba_referencia
+          - name: MES
+          - name: ID_VEICULO
+          - name: REDE
+          - name: Veiculo_DASH
+          - name: IDSEED
+          - name: VEICULO
+          - name: DSP
+          - name: VEICULO_INVENTARIO
+          - name: Fonte_de_dados_principal_impressoes_cliques_etc
+          - name: Fonte_de_dados_orcamento_executado
+          - name: UF
+          - name: PRACA
+          - name: CANAL
+          - name: MODELO_DE_COMPRA
+          - name: SEGMENTACAO
+          - name: OBJETIVO
+          - name: TIPO_DE_COMPRA
+          - name: FORMATO
+          - name: TOTAL_INS
+          - name: VALOR_LIQUIDO
+          - name: Valor_unitario
+          - name: Data_de_inicio
+          - name: Data_fim
+          - name: Campanha
+
+      - name: TAXONOMIA_RAW
+        description: tabela com dados de performance diario da campanha extraidos de meta
+        columns:
+          - name: ADVERTISER
+          - name: ADVERTISER_ABREVIADO
+          - name: NOME_PROJETO
+          - name: ARGUMENTO
+          - name: NUMERO_ACAO
+          - name: NUMERO_PROJETO
+          - name: NOME_CAMPANHA
+          - name: STATUS_
+          - name: IDPARAMETRO
+          - name: CONTENT_
+          - name: IDSEED_
+          - name: VEICULO_PLATAFORMA
+          - name: TIPO_INVENTARIO
+          - name: TIPO_DE_COMPRA
+          - name: OPTIMIZATION_IO
+          - name: TARGETING_MACRO
+          - name: DETALHAMENTO_SEGMENTACAO
+          - name: DETALHAMENTO_SEGMENTACAO_MACRO
+          - name: PRACA
+          - name: CANAL
+          - name: AGENCIA
+          - name: MES_REFERENCIA
+          - name: OPTIMIZATION_LI
+          - name: TIPO_DE_MIDIA
+          - name: TIPO_DE_COMPRA_
+          - name: ESTRATEGIA
+          - name: TECNOLOGIA_ADSERVER
+          - name: FORMATO_CRIATIVO
+          - name: DIMENSAO
+          - name: DISPOSITIVO
+          - name: LINHA_CRIATIVA
+          - name: CONTEUDO_DA_PECA
+          - name: DATA_PREVISTA_INICIO
+          - name: DATA_PREVISTA_FIM
+          - name: INSERTION_ORDER_DSP
+          - name: LINE_ITEM_DSP
+          - name: CONTAGEM_CARACTERES
+          - name: PLACEMENT_CM
+          - name: _
+          - name: CREATIVE_DSP
+          - name: URL_DESTINO
+          - name: URL_PARAMETRIZADA
+          - name: ID_ANUNCIO
+          - name: ID_ANUNCIO_
+
+      - name: TIKTOK-ALCANCE-CAMPANHA_RAW
+        description: tabela com dados de performance diario da campanha extraidos de meta
+        columns:
+          - name: CAMPANHA
+          - name: UTM_CONTENT
+          - name: ALCANCE
+          - name: SEED
+          - name: CONTENT
+
+      - name: TIKTOK-ALCANCE-DIARIO_RAW
+        description: tabela com dados de performance diario da campanha extraidos de meta
+        columns:
+          - name: Date
+          - name: Campaign_name
+          - name: UTM_CONTENT
+          - name: Reach
+          - name: SEED
+          - name: CONTENT
+
+      - name: TIKTOK_RAW
+        description: tabela com dados de performance diario da campanha extraidos de meta
+        columns:
+          - name: Date
+          - name: Campaign_name
+          - name: Ad_set_name
+          - name: Promoted_post_name
+          - name: Promoted_post_image_URL
+          - name: Url_Destino
+          - name: UTM_CONTENT
+          - name: Cost
+          - name: Impressions
+          - name: Link_clicks
+          - name: Engagements
+          - name: Video_play_actions
+          - name: Video_watches_at_25_
+          - name: Video_watches_at_50_
+          - name: Video_watches_at_75_
+          - name: Video_watches_at_100_
+          - name: SEED
+          - name: UTM_CONTENT_
+
+    - name: cni_institucional_2025_raw_ads_sources # apelido único do *source* no dbt
+      description: Tabelas RAW ingestadas planilhas próprias, de parceiros e artplan;
+      database: still-protocol-440221-k2 # projeto GCP
+      schema: CNI_INSTITUCIONAL_2025_RAW # dataset no BigQuery
+      tables:
+
+      - name: GA_RAW
+        description: tabela com dados raw referentes aos ACESSOS no receptivo
+        columns:
+          - name: Date
+          - name: Source_medium
+          - name: Campaign
+          - name: Ad_content
+          - name: Page
+          - name: Sessions
+          - name: Users
+          - name: New_users
+          - name: Avg_session_length
+          - name: sessao_engajada
+          - name: Pageviews
+      - name: META_RAW
+        description: tabela com dados raw referentes aos ACESSOS no receptivo
+        columns:
+          - name: Day
+          - name: Ad_name
+          - name: Campaign_name
+          - name: Ad_Set_Name
+          - name: Preview_Link
+          - name: Buying_type
+          - name: Platform
+          - name: Amount_Spent
+          - name: Reach
+          - name: Impressions
+          - name: Clicks__all_
+          - name: Link_Clicks
+          - name: CTR__all_
+          - name: Post_engagements
+          - name: ThruPlays
+          - name: Video_plays_at_25_
+          - name: Video_plays_at_50_
+          - name: Video_plays_at_75_
+          - name: Video_plays_at_100_
+          - name: CONTENT
+          - name: LINK_DESTINO
+          - name: ID_SEED
+      - name: PINTEREST_RAW
+        description: tabela com dados raw referentes a PERFORMANCE de pinterest
+        columns:
+          - name: Veiculo
+          - name: Date
+          - name: Advertiser_name
+          - name: Campaign_name
+          - name: Campaign_ID
+          - name: Ad_group_start_date
+          - name: Ad_group_end_date
+          - name: Campaign_Objective_type
+          - name: Ad_group_name
+          - name: Destination_URL
+          - name: Impressions
+          - name: Cost
+          - name: Clicks
+          - name: Video_starts_paid
+          - name: Three_second_video_views
+          - name: Video_views_at_25__paid
+          - name: Video_views_at_50__paid
+          - name: Video_views_at_75__paid
+          - name: Video_views_at_100__paid
+          - name: Engagements_paid
+          - name: Video_avg__watch_time__s__paid
+          - name: View_through_conversions__page_visit_
+          - name: _
+          - name: IDSEED
+      - name: TIKTOK_RAW
+        description: tabela com dados raw referentes a PERFORMANCE de TIKTOK
+        columns:
+          - name: Veiculo
+          - name: Date
+          - name: Advertiser_name
+          - name: Campaign_name
+          - name: Campaign_ID
+          - name: Schedule_start_time
+          - name: Schedule_end_time
+          - name: Campaign_Objective_type
+          - name: Ad_group_name
+          - name: Ad_name
+          - name: Profile_image_URL
+          - name: AG_placement
+          - name: utm_content_parameter_value
+          - name: Impressions
+          - name: Cost
+          - name: Clicks
+          - name: Video_views
+          - name: _6_second_video_views
+          - name: Video_views_at_25_
+          - name: Video_views_at_50_
+          - name: Video_views_at_75_
+          - name: Video_views_at_100_
+          - name: Paid_likes
+          - name: Paid_shares
+          - name: Paid_comments
+          - name: Total_landing_page_view
+          - name: AVG_watch_time_per_video_view
+          - name: _
+          - name: SEED
+      - name: GOOGLE_RAW
+        description: tabela com dados raw referentes a PERFORMANCE de google_ads
+        columns:
+          - name: Dia
+          - name: Campanha
+          - name: Link_do_material
+          - name: Tipo_de_compra
+          - name: Custo
+          - name: Visualizacoes
+          - name: Impr
+          - name: Cliques
+          - name: CTR
+          - name: Engajamentos
+          - name: Video_assistido_at__25_
+          - name: Video_assistido_at__50_
+          - name: Video_assistido_at__75_
+          - name: Video_assistido_at__100_
+          - name: SEED
+          - name: CONTENT
+          - name: LINK_DESTINO
+      - name: LINKEDIN_RAW
+        description: tabela com dados raw referentes a PERFORMANCE de LINKEDIN
+        columns:
+          - name: Veiculo
+          - name: Account_ID
+          - name: Date
+          - name: Account_name
+          - name: Campaign_name
+          - name: Campaign_group_name
+          - name: Creative_title
+          - name: Campaign_objective_type
+          - name: Creative_thumbnail_URL
+          - name: Creative_destination_URL
+          - name: Total_spent
+          - name: Impressions
+          - name: Landing_page_clicks
+          - name: Clicks
+          - name: Likes
+          - name: Comments
+          - name: Shares
+          - name: Video_starts
+          - name: Video_views_at_25
+          - name: Video_views_at_50
+          - name: Video_views_at_75
+          - name: Video_completions_
+          - name: Reach
+          - name: ID_SEED
+      - name: MATRIZ_DE_CONTEUDO_RAW
+        description: tabela com dados de criativos da campanha INSTITUCIONAL
+        columns:
+          - name: ENTIDADE
+          - name: CRIATIVO
+          - name: VEICULO
+          - name: FORMATO
+          - name: INICIO_DE_VEICULACAO
+          - name: FINAL_DE_VEICULACAO
+          - name: TIPO_DE_COMPRA
+          - name: SEGMENTACAO
+          - name: STATUS_DA_PECA
+          - name: OBJETIVO
+          - name: LINK_DA_PUBLICACAO_MATERIAL
+          - name: COLUNA
+          - name: LINK_PARAMETRIZADO
+          - name: LINK_DO_POST
+          - name: Campanha
+          - name: Conjunto
+          - name: Criativo2
+      - name: PLANEJADO_RAW
+        description: tabela com dados dos veiculos da campanha INSTITUCIONAL
+        columns:
+          - name: Aba_referencia
+          - name: VEICULO
+          - name: Veiculo_Dash
+          - name: IDSEED
+          - name: CANAL
+          - name: FORMATO
+          - name: PERIODO
+          - name: TIPO_DE_COMPRA
+          - name: ESTIMATIVA_DE_ENTREGA
+          - name: VALOR_TOTAL_AJUSTADO
+          - name: Valor_unitario
+          - name: Data_de_inicio
+          - name: Data_fim
+          - name: Campanha
+      - name: ADP_RAW
+        description: tabela com dados raw referentes as parametrizacoes implementadas via adserver.
+        columns:
+          - name: ID_SERVER
+          - name: FORMAT_ID
+          - name: PLACEMENT_ID
+          - name: STATUS_ID
+          - name: STATUS
+          - name: VEICULO
+          - name: CANAL_OU_SEGMENTACAO
+          - name: LINHA_CRIATIVA
+          - name: COMPLEXIDADE
+          - name: NOME_DO_FORMATO
+          - name: DIMENSAO
+          - name: EXPANDIDA
+          - name: PESO_RICH
+          - name: PESO_GIF
+          - name: LOOP
+          - name: TEMPO
+          - name: COMPRA
+          - name: QUANT
+          - name: PLATAFORMA
+          - name: TECNOLOGIA_UTILIZADA
+          - name: RECURSOS_TECNOLOGICOS
+          - name: RECURSOS_DE_ACESSIBILIDADE
+          - name: PERIODO_DE_VEICULACAO
+          - name: UTILIZACAO
+          - name: PRACA
+          - name: VIDEO
+          - name: MEDIA_KIT
+          - name: OBSERVACAO
+          - name: URL
+          - name: Inicio
+          - name: fim
+          - name: IDSEED
+          - name: TIPO_DE_COMPRA
+          - name: Campanha
+          - name: Criativo2
+      - name: Linkedin_Flight_2_RAW
+        description: tabela com dados raw referentes a performance do flight2 de linkedin ads da campanha cni institucional
+        columns:
+          - name: veiculo
+          - name: account_id
+          - name: date
+          - name: account_name
+          - name: campaign_name
+          - name: campaign_group_name
+          - name: creative_title
+          - name: campaign_objective_type
+          - name: creative_thumbnail_url
+          - name: creative_destination_url
+          - name: total_spent
+          - name: impressions
+          - name: link_clicks
+          - name: clicks
+          - name: likes
+          - name: comments
+          - name: shares
+          - name: video_views
+          - name: video_views_at_25
+          - name: video_views_at_50
+          - name: video_views_at_75
+          - name: video_views_at_100
+          - name: reach
+          - name: seed
+      - name: META_FLIGHT2_RAW
+        description: tabela com dados raw referentes aos ACESSOS no receptivo
+        columns:
+          - name: day
+          - name: ad_name
+          - name: campaign_name
+          - name: ad_set_name
+          - name: preview_link
+          - name: utm_content
+          - name: link_de_destino
+          - name: buying_type
+          - name: platform
+          - name: amount_spent
+          - name: visualizacoes
+          - name: reach
+          - name: impressions
+          - name: clicks__all
+          - name: link_clicks
+          - name: ctr_all
+          - name: post_engagements
+          - name: thruplays
+          - name: video_plays_at_25_
+          - name: video_plays_at_50_
+          - name: video_plays_at_75_
+          - name: video_plays_at_100_
+          - name: seed
+          - name: content
+      - name: TIKTOK_FLIGHT2_RAW
+        description: tabela com dados raw referentes a PERFORMANCE de TIKTOK flight_2
+        columns:
+          - name: Veiculo
+          - name: Date
+          - name: Advertiser_name
+          - name: Campaign_name
+          - name: Campaign_ID
+          - name: Schedule_start_time
+          - name: Schedule_end_time
+          - name: Campaign_objective_type
+          - name: Ad_group_name
+          - name: Ad_name
+          - name: Profile_image_URL
+          - name: AG_Placement
+          - name: utm_content_parameter_value
+          - name: Impressions
+          - name: Cost
+          - name: Clicks
+          - name: Video_views
+          - name: six_second_vv
+          - name: Video_views_at_25
+          - name: Video_views_at_50
+          - name: Video_views_at_75
+          - name: Video_views_at_100
+          - name: Paid_likes
+          - name: Paid_shares
+          - name: Paid_comments
+          - name: Total_landing_page_view
+          - name: Avg_watch_time_per_video_view
+          - name: Coluna
+          - name: SEED
+      - name: Pinterest-ARTPLAN-RAW_Flight2
+        description: tabela com dados raw referentes a PERFORMANCE de pinterest
+        columns:
+          - name: Veiculo
+          - name: Date
+          - name: Advertiser_name
+          - name: Campaign_name
+          - name: Campaign_ID
+          - name: Ad_group_start_date
+          - name: Ad_group_end_date
+          - name: Campaign_objective_type
+          - name: Ad_group_name
+          - name: Promoted_pin_name
+          - name: Destination_URL
+          - name: Impressions
+          - name: Cost
+          - name: Clicks
+          - name: Video_starts_paid
+          - name: Three_second_video_views
+          - name: Video_views_at_25_paid
+          - name: Video_views_at_50_paid
+          - name: Video_views_at_75_paid
+          - name: Video_views_at_100_paid
+          - name: Engagements_paid
+          - name: Video_avg_watch_time_paid
+          - name: View_through_conversions_page_visit
+          - name: Coluna
+          - name: IDSEED
+      - name: YouTube_Flight_2_RAW
+        description: tabela com dados raw referentes a PERFORMANCE de google_ads
+        columns:
+          - name: date
+          - name: campaign_name
+          - name: ad_group_name
+          - name: final_url
+          - name: custo
+          - name: video_views
+          - name: impressions
+          - name: link_clicks
+          - name: ctr
+          - name: engajamentos
+          - name: seed
+      - name: CONSOLIDADO_ADSERVERS_RAW
+        description: tabela com dados raw referentes a PERFORMANCE de pinterest
+        columns:
+          - name: campaign_id
+          - name: campaign_name
+          - name: campaign_start_datetime
+          - name: campaign_end_datetime
+          - name: placement_id
+          - name: placement_purchase_qty
+          - name: placement_name
+          - name: account_id
+          - name: account_name
+          - name: team_id
+          - name: team_name
+          - name: format_name
+          - name: format_size_width
+          - name: format_size_height
+          - name: site_id
+          - name: site_name
+          - name: site_website
+          - name: site_mediakit_url
+          - name: channel_descr
+          - name: channel_purchased_quantity
+          - name: purchase_type_format
+          - name: creative_id
+          - name: creative_active
+          - name: creative_redirect_url
+          - name: creative_delivery_order
+          - name: creative_delivery_limit
+          - name: creative_dates
+          - name: creative_has_file
+          - name: creative_deleted_at
+          - name: group_name
+          - name: blocklists
+          - name: unique_users
+          - name: impressions
+          - name: unique_impressions
+          - name: views
+          - name: unique_views
+          - name: clicks
+          - name: unique_clicks
+          - name: viewables
+          - name: errors
+          - name: starts
+          - name: firstquartiles
+          - name: midpoints
+          - name: thirdquartiles
+          - name: completes
+          - name: safeframes
+          - name: pixels
+          - name: viewables_starts
+          - name: viewables_firstquartiles
+          - name: viewables_midpoints
+          - name: viewables_thirdquartiles
+          - name: viewables_completes
+          - name: viewability
+          - name: ctr
+          - name: datetime
+          - name: SEED
+
+    - name: SEST_SENAT_CURSOS_ESPECIALIZADOS_RAW_SOURCES # apelido único do *source* no dbt
+      description: Tabelas RAW ingestadas via planilha de parceiros
+      database: still-protocol-440221-k2 # projeto GCP
+      schema: SEST_SENAT_CURSOS_ESPECIALIZADOS_2025 # dataset no BigQuery
+      tables:
+
+      - name: GA_RAW
+        description: tabela com dados raw referentes aos eventos no receptivo
+        columns:
+          - name: Date
+          - name: Source_medium
+          - name: Campaign
+          - name: Ad_content
+          - name: Country
+          - name: Region
+          - name: Sessions
+          - name: Users
+          - name: New_users
+          - name: Avg__session_length_RAW
+          - name: Engajamento
+          - name: Pageviews
+          - name: Avg__session_length
+          - name: IDSEED
+      - name: GOOGLE_RAW
+        description: tabela com dados raw referentes A performance de google ads na campanha cursos especializados
+        columns:
+          - name: Date
+          - name: Campaign_name
+          - name: Ad_group_name
+          - name: Final_URL
+          - name: Impressions
+          - name: Clicks
+          - name: CTR
+          - name: Cost
+          - name: IDSEED
+      - name: LINKEDIN_RAW
+        description: tabela com dados referentes a performance de LINKEDIN ADS da campanha cursos especializados SEST_SENAT
+        columns:
+          - name: Date
+          - name: Account
+          - name: Campaign_name
+          - name: Ad_set_name
+          - name: Campaign_objective
+          - name: Url_Destino
+          - name: Impressions
+          - name: Link_clicks
+          - name: Post_reactions
+          - name: Post_comments
+          - name: Post_shares
+          - name: Video_play_actions
+          - name: Video_watches_at_25
+          - name: Video_watches_at_50
+          - name: Video_watches_at_75
+          - name: Video_watches_at_100
+          - name: Reach
+          - name: Conversoes
+          - name: Cost
+          - name: IDSEED
+      - name: META_RAW
+        description: tabela com dados referentes a performance de META ADS da campanha cursos especializados SEST_SENAT
+        columns:
+          - name: Date
+          - name: Campaign_name
+          - name: Ad_set_name
+          - name: Ad_name
+          - name: Publisher_platform
+          - name: Ad_creative_image_URL
+          - name: Link_to_promoted_Instagram_post
+          - name: Destination_URL
+          - name: Reach
+          - name: Impressions
+          - name: Clicks_all
+          - name: CTR_all
+          - name: Post_engagements
+          - name: Post_reactions
+          - name: Post_shares
+          - name: Post_comments
+          - name: Post_Saves
+          - name: ThruPlay_actions
+          - name: Video_watches_at_25
+          - name: Video_watches_at_50
+          - name: Video_watches_at_75
+          - name: Video_completions
+          - name: Reach
+          - name: Conversoes
+          - name: Cost
+          - name: IDSEED
+      - name: TIKTOK_RAW
+        description: tabela com dados referentes a performance de TIKTOK ADS da campanha cursos especializados SEST_SENAT
+        columns:
+          - name: Date
+          - name: Account_name
+          - name: Campaign_name
+          - name: Campaign_group_name
+          - name: Creative_title
+          - name: Campaign_objective_type
+          - name: Creative_destination_URL
+          - name: Impressions
+          - name: Landing_page_clicks
+          - name: Likes
+          - name: Comments
+          - name: Shares
+          - name: Video_starts
+          - name: Video_views_at_25
+          - name: Video_views_at_50
+          - name: Video_views_at_75
+          - name: Video_completions
+          - name: Reach
+          - name: Conversoes
+          - name: Cost
+          - name: IDSEED
+      - name: FLOW_RAW
+        description: tabela com dados referentes a performance DO VEICULO FLOW da campanha cursos especializados SEST_SENAT
+        columns:
+          - name: campaign_id
+          - name: campaign_name
+          - name: campaign_start_datetime
+          - name: campaign_end_datetime
+          - name: placement_id
+          - name: placement_purchase_qty
+          - name: placement_name
+          - name: account_id
+          - name: account_name
+          - name: team_id
+          - name: team_name
+          - name: format_name
+          - name: format_size_width
+          - name: format_size_height
+          - name: site_id
+          - name: site_name
+          - name: site_website
+          - name: site_mediakit_url
+          - name: channel_descr
+          - name: channel_purchased_quantity
+          - name: purchase_type_format
+          - name: creative_id
+          - name: creative_active
+          - name: creative_redirect_url
+          - name: creative_delivery_order
+          - name: creative_dates
+          - name: creative_has_file
+          - name: creative_deleted_at
+          - name: group_name
+          - name: blocklists
+          - name: unique_users
+          - name: impressions
+          - name: unique_impressions
+          - name: views
+          - name: unique_views
+          - name: clicks
+          - name: unique_clicks
+          - name: viewables
+          - name: errors
+          - name: starts
+          - name: firstquartiles
+          - name: midpoints
+          - name: thirdquartiles
+          - name: completes
+          - name: safeframes
+          - name: pixels
+          - name: viewables_starts
+          - name: viewables_firstquartiles
+          - name: viewables_midpoints
+          - name: viewables_thirdquartiles
+          - name: viewables_completes
+          - name: viewability
+          - name: ctr
+          - name: datetime
+          - name: SEED
+          - name: RESULTADO
+      - name: PLANEJADO
+        description: tabela com dados PLANEJADOS DA CAMPANHA SEST/SENAT
+        columns:
+          - name: Aba_referencia
+          - name: VEICULO
+          - name: Veiculo_Dash
+          - name: IDSEED
+          - name: CANAL
+          - name: FORMATO
+          - name: PERIODO
+          - name: TIPO_DE_COMPRA
+          - name: ESTIMATIVA_DE_ENTREGA
+          - name: VALOR_TOTAL_AJUSTADO
+          - name: Valor_unitario
+          - name: Data_de_inicio
+          - name: Data_fim
+      - name: MATRIZ_DE_CONTEUDO
+        description: tabela com dados DA MATRIZ DE CONTEUDO DA CAMPANHA SEST/SENAT
+        columns:
+          - name: string_field_0
+          - name: string_field_1
+          - name: string_field_2
+          - name: string_field_3
+          - name: string_field_4
+          - name: string_field_5
+          - name: string_field_6
+          - name: string_field_7
+          - name: string_field_8
+          - name: string_field_9
+          - name: string_field_10
+          - name: string_field_11
+          - name: string_field_12
+          - name: string_field_13
+          - name: string_field_14
+          - name: string_field_15
+          - name: string_field_16
+          - name: string_field_17
+          - name: string_field_18
+          - name: string_field_19
+      - name: ADP_RAW
+        description: tabela com dados DO ADP DA CAMPANHA SEST/SENAT
+        columns:
+          - name: ID_SERVER
+          - name: FORMAT_ID
+          - name: PLACEMENT_ID
+          - name: STATUS_ID
+          - name: STATUS
+          - name: VEICULO
+          - name: CANAL_OU_SEGMENTACAO
+          - name: LINHA_CRIATIVA
+          - name: COMPLEXIDADE
+          - name: NOME_DO_FORMATO
+          - name: DIMENSAO
+          - name: EXPANDIDA
+          - name: PESO_RICH
+          - name: PESO_GIF
+          - name: LOOP
+          - name: TEMPO
+          - name: COMPRA
+          - name: QUANT
+          - name: PLATAFORMA
+          - name: TECNOLOGIA_UTILIZADA
+          - name: RECURSOS_TECNOLOGICOS
+          - name: RECURSOS_DE_ACESSIBILIDADE
+          - name: PERIODO_DE_VEICULACAO
+          - name: UTILIZACAO
+          - name: PRACA
+          - name: VIDEO
+          - name: MEDIA_KIT
+          - name: OBSERVACAO
+          - name: URL
+          - name: IDSEED
+
+    - name: SEST_SENAT_CAMINHONEIRO_AUTONOMO_2025_SOURCES # apelido único do *source* no dbt
+      description: Tabelas RAW ingestadas via planilha de parceiros
+      database: still-protocol-440221-k2 # projeto GCP
+      schema: SEST_SENAT_CAMINHONEIRO_AUTONOMO_2025 # dataset no BigQuery
+      tables:
+      - name: IDEAL_RAW
+        description: tabela com a entrega de ideal adserver
+        columns:
+          - name: campaign_id
+          - name: campaign_name
+          - name: campaign_start_datetime
+          - name: campaign_end_datetime
+          - name: placement_id
+          - name: placement_purchase_qty
+          - name: placement_name
+          - name: account_id
+          - name: account_name
+          - name: team_id
+          - name: team_name
+          - name: format_name
+          - name: format_size_width
+          - name: format_size_height
+          - name: site_id
+          - name: site_name
+          - name: site_website
+          - name: site_mediakit_url
+          - name: channel_descr
+          - name: channel_purchased_quantity
+          - name: purchase_type_format
+          - name: creative_id
+          - name: creative_active
+          - name: creative_redirect_url
+          - name: creative_delivery_order
+          - name: creative_delivery_limit
+          - name: creative_dates
+          - name: creative_has_file
+          - name: creative_deleted_at
+          - name: group_name
+          - name: blocklists
+          - name: unique_users
+          - name: impressions
+          - name: unique_impressions
+          - name: views
+          - name: unique_views
+          - name: clicks
+          - name: unique_clicks
+          - name: viewables
+          - name: errors
+          - name: starts
+          - name: firstquartiles
+          - name: midpoints
+          - name: thirdquartiles
+          - name: completes
+          - name: safeframes
+          - name: pixels
+          - name: viewables_starts
+          - name: viewables_firstquartiles
+          - name: viewables_midpoints
+          - name: viewables_thirdquartiles
+          - name: viewables_completes
+          - name: viewability
+          - name: ctr
+          - name: datetime
+          - name: seed
+          - name: content
+
+      - name: ADP_RAW
+        description: tabela com o adp parametrizado
+        columns:
+          - name: id_server
+          - name: format_id
+          - name: placement_id
+          - name: status_id
+          - name: status
+          - name: veiculo
+          - name: canal_ou_segmentacao
+          - name: linha_criativa
+          - name: complexidade
+          - name: nome_do_formato
+          - name: dimensao
+          - name: expandida
+          - name: peso_rich
+          - name: peso_gif
+          - name: loop
+          - name: tempo
+          - name: compra
+          - name: quant
+          - name: plataforma
+          - name: tecnologia_utilizada
+          - name: recursos_tecnologicos
+          - name: recursos_de_acessibilidade
+          - name: periodo_de_veiculacao
+          - name: utilizacao
+          - name: praca
+          - name: video
+          - name: media_kit
+          - name: observacao
+          - name: url
+          - name: seed
+          - name: content
+
+      - name: IDEAL_CUSTOS_RAW
+        description: tabela com os custos simulados de IDEAL
+        columns:
+          - name: seed
+          - name: content
+          - name: impressions
+          - name: datetime
+          - name: custo
+
+      - name: PLANEJADO_RAW
+        description: tabela com dados PLANEJADOS DA CAMPANHA CAMINHONEIROS
+        columns:
+          - name: Aba_referencia
+          - name: VEICULO
+          - name: Veiculo_Dash
+          - name: IDSEED
+          - name: CANAL
+          - name: FORMATO
+          - name: PERIODO
+          - name: TIPO_DE_COMPRA
+          - name: ESTIMATIVA_DE_ENTREGA
+          - name: VALOR_TOTAL_AJUSTADO
+          - name: Valor_unitario
+          - name: Data_de_inicio
+          - name: Data_fim
+          - name: Campanha
+      - name: MATRIZ_DE_CONTEUDO_RAW
+        description: tabela com dados DA MATRIZ DE CONTEUDO DA CAMPANHA CAMINHONEIRO
+        columns:
+          - name: PLATAFORMA
+          - name: CRIATIVO
+          - name: FORMATO
+          - name: LEGENDA
+          - name: LINK_DA_PECA
+          - name: PRACA
+          - name: IMPULSIONADO_DARK
+          - name: PERFIL_DE_VEICULACAO
+          - name: TIPO_DE_COMPRA
+          - name: OBJETIVO
+          - name: SEGMENTACAO
+          - name: STATUS
+          - name: LINK_PARAMETRIZADO
+          - name: LINK_DA_PUBLICACAO
+          - name: INICIO_DA_VEICULACAO_DATA_E_HORA
+          - name: FINAL_DA_VEICULACAO
+          - name: URL_DE_DESTINO
+          - name: URL_PARAMETRIZADA
+          - name: NOME_CONJUNTO
+          - name: NOME_CRIATIVO
+
+      - name: ZAPMEDIA_RAW
+        description: tabela com dados da veiculacao de ZAPMEDIA DA CAMPANHA CAMINHONEIROS
+        columns:
+          - name: Data
+          - name: Campanha
+          - name: Investimento
+          - name: Envios
+          - name: Visualizados
+          - name: Taxa_de_Visualizacao
+          - name: Cliques
+          - name: CTR
+          - name: Custo_por_Clique
+          - name: Block_List
+          - name: Print_da_Campanha
+          - name: IDSEED
+
+      - name: META_RAW
+        description: tabela com dados referentes a performance de META ADS da campanha Caminhoneiro
+        columns:
+          - name: date
+          - name: campaign_name
+          - name: ad_set_name
+          - name: ad_name
+          - name: reach
+          - name: impressions
+          - name: clicks_all
+          - name: ctr_all
+          - name: link_clicks
+          - name: post_engagements
+          - name: post_reactions
+          - name: post_shares
+          - name: post_saves
+          - name: post_comments
+          - name: thruplays_actions
+          - name: video_play_actions
+          - name: video_watches_at_25
+          - name: video_watches_at_50
+          - name: video_watches_at_75
+          - name: video_watches_at_100
+          - name: cost
+          - name: idseed
+          - name: content
+
+      - name: GA_RAW
+        description: tabela com dados raw referentes aos eventos no receptivo
+        columns:
+          - name: Date
+          - name: Session_campaign_name
+          - name: Session_source__medium
+          - name: Session_manual_ad_content
+          - name: Sessions
+          - name: Total_users
+          - name: New_users
+          - name: Engaged_sessions
+          - name: Average_session_duration
+          - name: Average_session_length_sec
+          - name: Views
+          - name: Bounces
+          - name: IDSEED
+
+    - name: SENAR_TEM_CAMPO_AQUI_SOURCES # apelido único do *source* no dbt
+      description: Tabelas RAW ingestadas via planilha sheets e extracao via supermetrics
+      database: still-protocol-440221-k2 # projeto GCP
+      schema: SENAR_TEM_CAMPO_AQUI # dataset no BigQuery
+      tables:
+
+      
+      - name: META_VISITAS_AO_PERFIL_RAW
+        description: tabela com dados VISITAS AO PERFIL em META
+        columns:
+          - name: nome_do_anuncio
+          - name: dia
+          - name: status_de_veiculacao
+          - name: nivel_de_veiculacao
+          - name: tipo_de_resultado
+          - name: resultados
+          - name: custo_por_resultado
+          - name: valor_usado_brl
+          - name: impressoes
+          - name: alcance
+          - name: configuracao_de_atribuicao
+          - name: classificacao_de_qualidade
+          - name: classificacao_da_taxa_de_engajamento
+          - name: classificacao_da_taxa_de_conversao
+          - name: nome_do_conjunto_de_anuncios
+          - name: cliques_no_link
+          - name: inicio_dos_relatorios
+          - name: termino_dos_relatorios
+          - name: seeds
+      
+      - name: TIKTOK-POSTS_RAW
+        description: tabela com dados ORGANICOS DOS VIDEOS em tiktok
+        columns:
+          - name: share_url
+          - name: caption
+          - name: video_views
+          - name: likes
+          - name: comments
+          - name: shares
+          - name: video_duration_s
+          - name: video_completion_rate
+
+      - name: YOUTUBE-ORGANICO-VIDEOS_RAW
+        description: tabela com dados ORGANICOS DOS VIDEOS em YOUTUBE
+        columns:
+          - name: data_da_postagem
+          - name: link_da_publicacao
+          - name: tempo
+          - name: titulo
+          - name: descricao
+          - name: impressoes
+          - name: visualizacoes
+          - name: comentarios
+          - name: gostei
+          - name: nao_gostei
+          - name: inscritos
+          - name: ctr
+          - name: engajamentos
+          - name: tx_de_engaj
+          - name: duracao_media_de_visualizacao
+
+      - name: YOUTUBE-ORGANICO-SHORTS_RAW
+        description: tabela com dados ORGANICOS DOS VIDEOS em YOUTUBE
+        columns:
+          - name: data_da_postagem
+          - name: link_da_publicaco
+          - name: tipo
+          - name: tempo
+          - name: titulo
+          - name: descricao
+          - name: visualizacoes
+          - name: comentarios
+          - name: gostei
+          - name: nao_gostei
+          - name: inscritos
+          - name: engajamentos
+          - name: taxa_de_engajamento
+          - name: observacoes   
+
+      - name: TWITTER_ORGANICO_PUBLICACOES_RAW
+        description: tabela com dados ORGANICOS DOS VIDEOS EM  de  META/FB
+        columns:
+          - name: data_da_postagem
+          - name: link_da_publicacao
+          - name: tipo
+          - name: descricao
+          - name: visualizacoes
+          - name: comentarios
+          - name: repost
+          - name: curtida
+          - name: salvamento
+          - name: compartilhamento
+          - name: thread
+
+      - name: ORGANICO_META_RAW
+        description: tabela com dados ORGANICOS DOS VIDEOS EM  de  META/FB
+        columns:
+          - name: fetch_date
+          - name: link_to_page
+          - name: likes
+          - name: page_followers
+          - name: talking_about
+
+      - name: ORGANICO-VIDEOS-META_RAW
+        description: tabela com dados ORGANICOS DOS VIDEOS EM  de  META/FB
+        columns:
+          - name: fetch_date
+          - name: created_date
+          - name: link_to_post
+          - name: post_type
+          - name: post_link
+          - name: posts
+          - name: likes
+          - name: reactions_love
+          - name: reactions_wow
+          - name: reactions_haha
+          - name: reactions_sad
+          - name: reactions_angry
+          - name: reactions_thankful
+          - name: reactions_pride
+          - name: reactions
+          - name: comments
+          - name: post_shares
+          - name: likes_per_post
+          - name: reactions_per_post
+          - name: comments_per_post
+
+      - name: ORGANICO-POSTS-IG_RAW
+        description: tabela com dados ORGANICOS DOS POSTS de  IG
+        columns:
+          - name: date
+          - name: post_id
+          - name: link_to_post
+          - name: post_type
+          - name: post_created
+          - name: post_caption
+          - name: post
+          - name: likes
+          - name: comments
+          - name: likes_per_post
+          - name: comments_per_post
+
+      - name: ORGANICO-IG_RAW
+        description: tabela com dados ORGANICOS de  IG
+        columns:
+          - name: fetch_date
+          - name: start
+          - name: profile_followers
+          - name: profile_follows
+          - name: profile_post_count
+
+      - name: TWITTER_SEGUIDORES_RAW
+        description: tabela com dados historicos de seguidores em TWITTER
+        columns:
+          - name: data
+          - name: total_de_seguidores
+
+      - name: HISTORICO_SEGUIDORES_YOUTUBE_RAW
+        description: tabela com dados historicos de seguidores em YOUTUBE
+        columns:
+          - name: date
+          - name: inscritos
+
+      - name: HISTORICO_SEGUIDORES_TIKTOK_RAW
+        description: tabela com dados historicos de seguidores em TIKTOK
+        columns:
+          - name: data
+          - name: total_de_seguidores
+
+      - name: HISTORICO_SEGUIDORES_IG_RAW
+        description: tabela com dados historicos de seguidores em IG
+        columns:
+          - name: data
+          - name: novos_seguidores
+          - name: perda_de_usuarios
+          - name: total_de_seguidores
+
+      - name: HISTORICO_SEGUIDORES_FB_RAW
+        description: tabela com dados historicos de seguidores em fb
+        columns:
+          - name: data
+          - name: novos_seguidores
+          - name: perda_de_usuarios
+          - name: total_de_seguidores
+
+      - name: MATRIZ_DE_CONTEUDO_RAW
+        description: tabela com dados DA MATRIZ DE CONTEUDO DA CAMPANHA TEM CAMPO AQUI
+        columns:
+          - name: data_da_publicacao
+          - name: status_com_cliente
+          - name: tipo_de_publicacao
+          - name: formato
+          - name: rede_social
+          - name: nome_da_peca
+          - name: link_com_peca_e_texto_de_apoio
+          - name: link_do_post
+          - name: objetivo
+          - name: url_de_campanha
+          - name: segmentacao_do_publico
+          - name: segmentacao_url_para_bi
+          - name: url_parametrizada
+          - name: incio_da_veiculacao
+          - name: final_da_veiculacao
+          - name: modelo_de_compra
+          - name: id
+          - name: campanha
+          - name: conjunto
+          - name: criativo
+
+      - name: META_RAW
+        description: tabela com dados referentes a performance de META ADS da campanha Tem Campo Aqui
+        columns:
+          - name: plataforma
+          - name: placement
+          - name: date
+          - name: campaign_name
+          - name: ad_set_name
+          - name: promoted_post_name
+          - name: promoted_post_image_url
+          - name: url_destino
+          - name: utm_content
+          - name: cost
+          - name: impressions
+          - name: link_clicks
+          - name: engajamento
+          - name: video_play_actions
+          - name: video_watches_at_25
+          - name: video_watches_at_50
+          - name: video_watches_at_75
+          - name: video_watches_at_100
+          - name: idseed
+          - name: content
+
+      - name: ORGANICO_TIKTOK_RAW
+        description: tabela com dados organicos referentes a performance de TikTok da campanha Tem Campo Aqui
+        columns:
+          - name: date
+          - name: video_views
+          - name: profile_views
+          - name: total_engagement
+          - name: likes
+          - name: comments
+          - name: shares
+          - name: new_followers
+          - name: current_followers
+
+    - name: MS_vacinacao_2025_raw_ads_sources # apelido único do *source* no dbt
+      description: Tabelas RAW ingestadas via Supermetrics e ADSERVER
+      database: still-protocol-440221-k2 # projeto GCP
+      schema: MS_VACINACAO_2025_RAW # dataset no BigQuery
+      tables:
+
+      - name: ADSERVER_6835_RAW
+        description: tabela com dados raw referentes ao ADP do flight 1
+        columns:
+          - name: campaign_id
+          - name: campaign_name
+          - name: campaign_start_datetime
+          - name: campaign_end_datetime
+          - name: placement_id
+          - name: placement_purchase_qty
+          - name: placement_name
+          - name: account_id
+          - name: account_name
+          - name: team_id
+          - name: team_name
+          - name: format_name
+          - name: format_size_width
+          - name: format_size_height
+          - name: site_id
+          - name: site_name
+          - name: site_website
+          - name: site_mediakit_url
+          - name: channel_descr
+          - name: channel_purchased_quantity
+          - name: purchase_type_format
+          - name: creative_id
+          - name: creative_active
+          - name: creative_redirect_url
+          - name: creative_delivery_order
+          - name: creative_delivery_limit
+          - name: creative_dates
+          - name: creative_has_file
+          - name: creative_deleted_at
+          - name: group_name
+          - name: blocklists
+          - name: unique_users
+          - name: impressions
+          - name: unique_impressions
+          - name: views
+          - name: unique_views
+          - name: clicks
+          - name: unique_clicks
+          - name: viewables
+          - name: errors
+          - name: starts
+          - name: firstquartiles
+          - name: midpoints
+          - name: thirdquartiles
+          - name: completes
+          - name: safeframes
+          - name: pixels
+          - name: viewables_starts
+          - name: viewables_firstquartiles
+          - name: viewables_midpoints
+          - name: viewables_thirdquartiles
+          - name: viewables_completes
+          - name: viewability
+          - name: ctr
+          - name: datetime
+          - name: Resultado
+          - name: SEED
+          - name: CUSTO
+
+
+      - name: ADP-Flight-4-Outubro_raw
+        description: tabela com dados raw referentes ao ADP do flight 1
+        columns:
+          - name: ID_SERVER
+          - name: FORMAT_ID
+          - name: PLACEMENT_ID
+          - name: STATUS_ID
+          - name: STATUS
+          - name: VEICULO
+          - name: CANAL_OU_SEGMENTACAO
+          - name: LINHA_CRIATIVA
+          - name: COMPLEXIDADE
+          - name: NOME_DO_FORMATO
+          - name: DIMENSAO
+          - name: EXPANDIDA
+          - name: PESO_RICH
+          - name: PESO_GIF
+          - name: LOOP
+          - name: TEMPO
+          - name: COMPRA
+          - name: QUANT_
+          - name: PLATAFORMA
+          - name: TECNOLOGIA_UTILIZADA
+          - name: RECURSOS_TECNOLOGICOS
+          - name: RECURSOS_DE_ACESSIBILIDADE
+          - name: PERIODO_DE_VEICULACAO
+          - name: UTILIZACAO
+          - name: PRACA
+          - name: VIDEO
+          - name: MEDIA_KIT
+          - name: OBSERVACAO
+          - name: URL_PARAMETRIZADA
+
+      - name: ADP-FLIGHT_1-ABRIL_RAW
+        description: tabela com dados raw referentes ao ADP do flight 1
+        columns:
+          - name: ID_SERVER
+          - name: FORMAT_ID
+          - name: PLACEMENT_ID
+          - name: STATUS_ID
+          - name: STATUS
+          - name: VEICULO
+          - name: CANAL_OU_SEGMENTACAO
+          - name: LINHA_CRIATIVA
+          - name: COMPLEXIDADE
+          - name: NOME_DO_FORMATO
+          - name: DIMENSAO
+          - name: EXPANDIDA
+          - name: PESO_RICH
+          - name: PESO_GIF
+          - name: LOOP
+          - name: TEMPO
+          - name: COMPRA
+          - name: QUANT_
+          - name: PLATAFORMA
+          - name: TECNOLOGIA_UTILIZADA
+          - name: RECURSOS_TECNOLOGICOS
+          - name: RECURSOS_DE_ACESSIBILIDADE
+          - name: PERIODO_DE_VEICULACAO
+          - name: UTILIZACAO
+          - name: PRACA
+          - name: VIDEO
+          - name: MEDIA_KIT
+          - name: OBSERVACAO
+          - name: URL_PARAMETRIZADA
+      - name: ADP_FLIGHT_1_MAIO
+        description: tabela com dados raw referentes ao ADP do flight 1
+        columns:
+          - name: ID_SERVER
+          - name: FORMAT_ID
+          - name: PLACEMENT_ID
+          - name: STATUS_ID
+          - name: STATUS
+          - name: VEICULO
+          - name: CANAL_OU_SEGMENTACAO
+          - name: LINHA_CRIATIVA
+          - name: COMPLEXIDADE
+          - name: NOME_DO_FORMATO
+          - name: DIMENSAO
+          - name: EXPANDIDA
+          - name: PESO_RICH
+          - name: PESO_GIF
+          - name: LOOP
+          - name: TEMPO
+          - name: COMPRA
+          - name: QUANT_
+          - name: PLATAFORMA
+          - name: TECNOLOGIA_UTILIZADA
+          - name: RECURSOS_TECNOLOGICOS
+          - name: RECURSOS_DE_ACESSIBILIDADE
+          - name: PERIODO_DE_VEICULACAO
+          - name: UTILIZACAO
+          - name: PRACA
+          - name: VIDEO
+          - name: MEDIA_KIT
+          - name: OBSERVACAO
+          - name: URL_PARAMETRIZADA
+      - name: ADP_FLIGHT_2_JUNHO
+        description: tabela com dados raw referentes ao ADP do flight 1
+        columns:
+          - name: ID_SERVER
+          - name: FORMAT_ID
+          - name: PLACEMENT_ID
+          - name: STATUS_ID
+          - name: STATUS
+          - name: VEICULO
+          - name: CANAL_OU_SEGMENTACAO
+          - name: LINHA_CRIATIVA
+          - name: COMPLEXIDADE
+          - name: NOME_DO_FORMATO
+          - name: DIMENSAO
+          - name: EXPANDIDA
+          - name: PESO_RICH
+          - name: PESO_GIF
+          - name: LOOP
+          - name: TEMPO
+          - name: COMPRA
+          - name: QUANT_
+          - name: PLATAFORMA
+          - name: TECNOLOGIA_UTILIZADA
+          - name: RECURSOS_TECNOLOGICOS
+          - name: RECURSOS_DE_ACESSIBILIDADE
+          - name: PERIODO_DE_VEICULACAO
+          - name: UTILIZACAO
+          - name: PRACA
+          - name: VIDEO
+          - name: MEDIA_KIT
+          - name: OBSERVACAO
+          - name: URL_PARAMETRIZADA
+      - name: ADP_FLIGHT_2_MAIO
+        description: tabela com dados raw referentes ao ADP do flight 1
+        columns:
+          - name: ID_SERVER
+          - name: FORMAT_ID
+          - name: PLACEMENT_ID
+          - name: STATUS_ID
+          - name: STATUS
+          - name: VEICULO
+          - name: CANAL_OU_SEGMENTACAO
+          - name: LINHA_CRIATIVA
+          - name: COMPLEXIDADE
+          - name: NOME_DO_FORMATO
+          - name: DIMENSAO
+          - name: EXPANDIDA
+          - name: PESO_RICH
+          - name: PESO_GIF
+          - name: LOOP
+          - name: TEMPO
+          - name: COMPRA
+          - name: QUANT_
+          - name: PLATAFORMA
+          - name: TECNOLOGIA_UTILIZADA
+          - name: RECURSOS_TECNOLOGICOS
+          - name: RECURSOS_DE_ACESSIBILIDADE
+          - name: PERIODO_DE_VEICULACAO
+          - name: UTILIZACAO
+          - name: PRACA
+          - name: VIDEO
+          - name: MEDIA_KIT
+          - name: OBSERVACAO
+          - name: URL_PARAMETRIZADA
+      - name: ADP_FLIGHT_3_AGOSTO
+        description: tabela com dados raw referentes ao ADP do flight 1
+        columns:
+          - name: ID_SERVER
+          - name: FORMAT_ID
+          - name: PLACEMENT_ID
+          - name: STATUS_ID
+          - name: STATUS
+          - name: VEICULO
+          - name: CANAL_OU_SEGMENTACAO
+          - name: LINHA_CRIATIVA
+          - name: COMPLEXIDADE
+          - name: NOME_DO_FORMATO
+          - name: DIMENSAO
+          - name: EXPANDIDA
+          - name: PESO_RICH
+          - name: PESO_GIF
+          - name: LOOP
+          - name: TEMPO
+          - name: COMPRA
+          - name: QUANT_
+          - name: PLATAFORMA
+          - name: TECNOLOGIA_UTILIZADA
+          - name: RECURSOS_TECNOLOGICOS
+          - name: RECURSOS_DE_ACESSIBILIDADE
+          - name: PERIODO_DE_VEICULACAO
+          - name: UTILIZACAO
+          - name: PRACA
+          - name: VIDEO
+          - name: MEDIA_KIT
+          - name: OBSERVACAO
+          - name: URL_PARAMETRIZADA
+      - name: ADSERVER_6533
+        description: tabela com dados referentes a performance do adserver_6533
+        columns:
+          - name: campaign_id
+          - name: campaign_name
+          - name: campaign_start_datetime
+          - name: campaign_end_datetime
+          - name: placement_id
+          - name: placement_purchase_qty
+          - name: placement_name
+          - name: account_id
+          - name: account_name
+          - name: team_id
+          - name: team_name
+          - name: format_name
+          - name: format_size_width
+          - name: format_size_height
+          - name: site_id
+          - name: site_name
+          - name: site_website
+          - name: site_mediakit_url
+          - name: channel_descr
+          - name: channel_purchased_quantity
+          - name: purchase_type_format
+          - name: creative_id
+          - name: creative_active
+          - name: creative_redirect_url
+          - name: creative_delivery_order
+          - name: creative_delivery_limit
+          - name: creative_dates
+          - name: creative_has_file
+          - name: creative_deleted_at
+          - name: group_name
+          - name: blocklists
+          - name: unique_users
+          - name: impressions
+          - name: unique_impressions
+          - name: views
+          - name: unique_views
+          - name: clicks
+          - name: unique_clicks
+          - name: viewables
+          - name: errors
+          - name: starts
+          - name: firstquartiles
+          - name: midpoints
+          - name: thirdquartiles
+          - name: completes
+          - name: safeframes
+          - name: pixels
+          - name: viewables_starts
+          - name: viewables_firstquartiles
+          - name: viewables_midpoints
+          - name: viewables_thirdquartiles
+          - name: viewables_completes
+          - name: viewability
+          - name: ctr
+          - name: datetime
+          - name: Resultado
+          - name: SEED
+          - name: CUSTO
+      - name: ADSERVER_6587_RAW
+        description: tabela com dados referentes a performance do adserver_6533
+        columns:
+          - name: campaign_id
+          - name: campaign_name
+          - name: campaign_start_datetime
+          - name: campaign_end_datetime
+          - name: placement_id
+          - name: placement_purchase_qty
+          - name: placement_name
+          - name: account_id
+          - name: account_name
+          - name: team_id
+          - name: team_name
+          - name: format_name
+          - name: format_size_width
+          - name: format_size_height
+          - name: site_id
+          - name: site_name
+          - name: site_website
+          - name: site_mediakit_url
+          - name: channel_descr
+          - name: channel_purchased_quantity
+          - name: purchase_type_format
+          - name: creative_id
+          - name: creative_active
+          - name: creative_redirect_url
+          - name: creative_delivery_order
+          - name: creative_delivery_limit
+          - name: creative_dates
+          - name: creative_has_file
+          - name: creative_deleted_at
+          - name: group_name
+          - name: blocklists
+          - name: unique_users
+          - name: impressions
+          - name: unique_impressions
+          - name: views
+          - name: unique_views
+          - name: clicks
+          - name: unique_clicks
+          - name: viewables
+          - name: errors
+          - name: starts
+          - name: firstquartiles
+          - name: midpoints
+          - name: thirdquartiles
+          - name: completes
+          - name: safeframes
+          - name: pixels
+          - name: viewables_starts
+          - name: viewables_firstquartiles
+          - name: viewables_midpoints
+          - name: viewables_thirdquartiles
+          - name: viewables_completes
+          - name: viewability
+          - name: ctr
+          - name: datetime
+          - name: Resultado
+          - name: SEED
+          - name: CUSTO
+      - name: ADSERVER_6681_RAW
+        description: tabela com dados referentes a performance do adserver_6681
+        columns:
+          - name: campaign_id
+          - name: campaign_name
+          - name: campaign_start_datetime
+          - name: campaign_end_datetime
+          - name: placement_id
+          - name: placement_purchase_qty
+          - name: placement_name
+          - name: account_id
+          - name: account_name
+          - name: team_id
+          - name: team_name
+          - name: format_name
+          - name: format_size_width
+          - name: format_size_height
+          - name: site_id
+          - name: site_name
+          - name: site_website
+          - name: site_mediakit_url
+          - name: channel_descr
+          - name: channel_purchased_quantity
+          - name: purchase_type_format
+          - name: creative_id
+          - name: creative_active
+          - name: creative_redirect_url
+          - name: creative_delivery_order
+          - name: creative_delivery_limit
+          - name: creative_dates
+          - name: creative_has_file
+          - name: creative_deleted_at
+          - name: group_name
+          - name: blocklists
+          - name: unique_users
+          - name: impressions
+          - name: unique_impressions
+          - name: views
+          - name: unique_views
+          - name: clicks
+          - name: unique_clicks
+          - name: viewables
+          - name: errors
+          - name: starts
+          - name: firstquartiles
+          - name: midpoints
+          - name: thirdquartiles
+          - name: completes
+          - name: safeframes
+          - name: pixels
+          - name: viewables_starts
+          - name: viewables_firstquartiles
+          - name: viewables_midpoints
+          - name: viewables_thirdquartiles
+          - name: viewables_completes
+          - name: viewability
+          - name: ctr
+          - name: datetime
+          - name: Resultado
+          - name: SEED
+          - name: CUSTO
+      - name: GA_ACESSOS_CAMPANHA_RAW
+        description: tabela com dados referentes aos acessos de campanha
+        columns:
+          - name: Date
+          - name: Session_source___medium
+          - name: Session_manual_campaign_name
+          - name: Session_manual_ad_content
+          - name: Country
+          - name: Region
+          - name: Sessions
+          - name: Total_users
+          - name: New_users
+          - name: Bounces
+          - name: Views
+          - name: Average_session_duration
+          - name: Engaged_sessions
+      - name: GA_ACESSOS_SEM_CAMPANHA_RAW
+        description: tabela com dados referentes aos acessos gerais no receptivo
+        columns:
+          - name: Date
+          - name: Session_source___medium
+          - name: Session_manual_campaign_name
+          - name: Session_manual_ad_content
+          - name: Country
+          - name: Region
+          - name: Sessions
+          - name: Total_users
+          - name: New_users
+          - name: Bounces
+          - name: Views
+          - name: Average_session_duration
+          - name: Engaged_sessions
+      - name: KWAI_RAW
+        description: tabela com dados referentes a performance de kwai
+        columns:
+          - name: Plataforma
+          - name: Placement
+          - name: Date
+          - name: Account
+          - name: Campaign_name
+          - name: Campaign_start_date
+          - name: Campaign_end_date
+          - name: Ad_set_name
+          - name: Promoted_post_name
+          - name: Campaign_objective
+          - name: Promoted_post_image_URL
+          - name: Url_Destino
+          - name: Cost
+          - name: Impressions
+          - name: Link_clicks
+          - name: Post_reactions
+          - name: Post_comments
+          - name: Post_shares
+          - name: Video_play_actions
+          - name: Video_watches_at_25_
+          - name: Video_watches_at_50_
+          - name: Video_watches_at_75_
+          - name: Video_watches_at_100_
+          - name: Reach
+          - name: Seed
+      - name: META_RAW
+        description: tabela com dados referentes a performance de META_ADS
+        columns:
+          - name: Plataforma
+          - name: Placement
+          - name: Date
+          - name: Account
+          - name: Campaign_name
+          - name: Campaign_start_date
+          - name: Campaign_end_date
+          - name: Ad_set_name
+          - name: Promoted_post_name
+          - name: Campaign_objective
+          - name: Promoted_post_image_URL
+          - name: Url_Destino
+          - name: Cost
+          - name: Impressions
+          - name: Link_clicks
+          - name: Post_reactions
+          - name: Post_comments
+          - name: Post_shares
+          - name: Video_play_actions
+          - name: Video_watches_at_25_
+          - name: Video_watches_at_50_
+          - name: Video_watches_at_75_
+          - name: Video_watches_at_100_
+          - name: Reach
+          - name: Seed
+      - name: PM_RAW
+        description: tabela com dados referentes a performance de META_ADS
+        columns:
+          - name: ABA_REFERENCIA
+          - name: VEICULO
+          - name: VEICULO_DASH
+          - name: IDSEED
+          - name: UF
+          - name: OBJETIVO
+          - name: CANAL
+          - name: FORMATO
+          - name: Total_de_dias
+          - name: TIPO_DE_COMPRA
+          - name: ESTIMATIVA_DE_ENTREGA
+          - name: _VALOR_TOTAL__NEGOCIADO_
+          - name: VALOR_LIQUIDO
+          - name: VALOR_UNITARIO
+          - name: DATA_DE_INICIO
+          - name: DATA_FIM
+          - name: PLANO
+      - name: TIKTOK_RAW
+        description: tabela com dados referentes a performance de TIKTOK_ADS
+        columns:
+          - name: Plataforma
+          - name: Placement
+          - name: Date
+          - name: Account
+          - name: Campaign_name
+          - name: Campaign_start_date
+          - name: Campaign_end_date
+          - name: Ad_set_name
+          - name: Promoted_post_name
+          - name: Campaign_objective
+          - name: Promoted_post_image_URL
+          - name: Url_Destino
+          - name: Cost
+          - name: Impressions
+          - name: Link_clicks
+          - name: Post_reactions
+          - name: Post_comments
+          - name: Post_shares
+          - name: Video_play_actions
+          - name: Video_watches_at_25_
+          - name: Video_watches_at_50_
+          - name: Video_watches_at_75_
+          - name: Video_watches_at_100_
+          - name: Reach
+          - name: Seed
+      - name: YOUTUBE_RAW
+        description: tabela com dados referentes a performance de GOOGLE_ADS
+        columns:
+          - name: Plataforma
+          - name: Placement
+          - name: Date
+          - name: Account
+          - name: Campaign_name
+          - name: Campaign_start_date
+          - name: Campaign_end_date
+          - name: Ad_set_name
+          - name: Promoted_post_name
+          - name: Campaign_objective
+          - name: Promoted_post_image_URL
+          - name: Url_Destino
+          - name: Cost
+          - name: Impressions
+          - name: Link_clicks
+          - name: Post_reactions
+          - name: Post_comments
+          - name: Post_shares
+          - name: Video_play_actions
+          - name: Video_watches_at_25_
+          - name: Video_watches_at_50_
+          - name: Video_watches_at_75_
+          - name: Video_watches_at_100_
+          - name: Reach
+          - name: Seed
+
+    - name: secom_influenciadores_raw_ads_sources # apelido único do *source* no dbt
+      description: Tabelas RAW ingestadas via Supermetrics
+      database: still-protocol-440221-k2 # projeto GCP
+      schema: SECOM_AON_INFLUENCIADORES_2025 # dataset no BigQuery
+      tables:
+      - name: MATRIZ_CONTEUDO_RAW
+        description: tabela com matriz de conteudo da acao influenciadores secom
+        columns:
+          - name: string_field_0
+          - name: string_field_1
+          - name: string_field_2
+          - name: string_field_3
+          - name: string_field_4
+          - name: string_field_5
+          - name: string_field_6
+          - name: string_field_7
+          - name: string_field_8
+          - name: string_field_9
+          - name: string_field_10
+          - name: string_field_11
+          - name: string_field_12
+          - name: string_field_13
+          - name: string_field_14
+          - name: string_field_15
+          - name: string_field_16
+          - name: string_field_17
+          - name: string_field_18
+          - name: string_field_19
+          - name: string_field_20
+          - name: string_field_21
+          - name: string_field_22
+          - name: string_field_23
+          - name: string_field_24
+          - name: string_field_25
+          - name: string_field_26
+          - name: string_field_27
+          - name: string_field_28
+          - name: string_field_29
+          - name: string_field_30
+      - name: PM_INFLUENCIADORES_RAW
+        description: tabela com dados DO PLANO DE MIDIA DA ACAO
+        columns:
+          - name: ID
+          - name: SEED
+          - name: VEICULO
+          - name: OBJETIVO
+          - name: CANAL
+          - name: FORMATO
+          - name: SEGMENTACAO
+          - name: VOLUME_CONTRATADO
+          - name: TIPO_DE_COMPRA
+          - name: VALOR_UNITARIO_LIQUIDO
+          - name: VALOR_TOTAL_LIQUIDO
+          - name: HONORARIOS
+          - name: VALOR_COMISSAO
+          - name: TOTAL_NEGOCIADO_LIQUIDO_E_COMISSAO
+          - name: DATA_INICIO
+          - name: DATA_FIM
+      - name: YOUTUBE_RAW
+        description: tabela com dados de performance da entrega no youtube da campanha influenciadores secom.
+        columns:
+          - name: Plataforma
+          - name: Placement
+          - name: Date
+          - name: Campaign_name
+          - name: Ad_set_name
+          - name: Promoted_post_name
+          - name: Promoted_post_image_URL
+          - name: Url_Destino
+          - name: Cost
+          - name: Impressions
+          - name: Link_clicks
+          - name: Video_play_actions
+          - name: Video_watches_at_25_
+          - name: Video_watches_at_50_
+          - name: Video_watches_at_75_
+          - name: Video_watches_at_100_
+          - name: Engagements
+          - name: utm_content
+
+    - name: BB_asset_raw_ads_sources # apelido único do *source* no dbt
+      description: Tabelas RAW ingestadas via Supermetrics
+      database: still-protocol-440221-k2 # projeto GCP
+      schema: BB_ASSET_2025 # dataset no BigQuery
+      tables:
+      - name: DOUBLE_VERIFY_TIKTOK_RAW
+        description: tabela com dados raw referentes a brand safety extraidos do double verify
+        columns:
+          - name: date
+          - name: campaign_name
+          - name: ad_set_name
+          - name: ad_name
+          - name: brand_suitability_measured_ads
+          - name: unique_incidents
+          - name: viewability_meadured_impressions
+          - name: viewable_impressions
+          - name: seed
+      - name: DOUBLE_VERIFY_META_RAW
+        description: tabela com dados raw referentes a brand safety extraidos do double verify
+        columns:
+          - name: date
+          - name: campaign_name
+          - name: ad_set_name
+          - name: ad_name
+          - name: platform_type
+          - name: eligible_impressions
+          - name: measured_impressions
+          - name: total_net_viewable_impressions
+          - name: viewable_impressions
+          - name: completed_impressions
+          - name: unique_incidents
+          - name: monitored_ads
+          - name: seed
+      - name: DOUBLE_VERIFY_LINKEDIN_RAW
+        description: tabela com dados raw referentes a brand safety extraidos do double verify
+        columns:
+          - name: date
+          - name: platform_campaign_name
+          - name: platform_campaign_group_name
+          - name: platform_ad_name
+          - name: platform_placement_type
+          - name: viewability_eligible_impressions
+          - name: viewability_measured_impressions
+          - name: viewable_impressions
+          - name: completed_impressions
+          - name: unique_incidents
+          - name: monitored_ads
+          - name: seed
+      - name: DOUBLE_VERIFY_ADSERVER_RAW
+        description: tabela com dados raw referentes a brand safety extraidos do double verify
+        columns:
+          - name: date
+          - name: campaign
+          - name: advertiser_name
+          - name: brand
+          - name: placement_name
+          - name: monitored_ads
+          - name: measured_impressions
+          - name: viewable_impressions
+          - name: brand_suitable_ads
+          - name: brand_suitability_incidents
+          - name: seed
+
+      - name: LINKEDIN-ALCANCE-CAMPANHA_RAW
+        description: tabela com dados raw referentes a performance no linkedin
+        columns:
+          - name: CAMPANHA
+          - name: UTM_CONTENT
+          - name: ALCANCE
+          - name: SEED
+          - name: CONTENT
+
+      - name: LINKEDIN-ALCANCE-DIARIO_RAW
+        description: tabela com dados raw referentes a performance no linkedin
+        columns:
+          - name: Date
+          - name: Campaign_name
+          - name: utm_content
+          - name: Reach
+          - name: SEED
+          - name: CONTENT
+
+      - name: LINKEDIN_RAW
+        description: tabela com dados raw referentes a performance no linkedin
+        columns:
+          - name: Date
+          - name: Campaign_name
+          - name: Ad_set_name
+          - name: Promoted_post_name
+          - name: Promoted_post_image_URL
+          - name: Url_Destino
+          - name: utm_content
+          - name: Cost
+          - name: Impressions
+          - name: Link_clicks
+          - name: Engajamento
+          - name: Video_play_actions
+          - name: Video_watches_at_25
+          - name: Video_watches_at_50
+          - name: Video_watches_at_75
+          - name: Video_watches_at_100
+          - name: SEED
+          - name: CONTENT
+      - name: CM-ALCANCE-CAMPANHA_RAW
+        description: tabela com dados raw referentes ao alcance de campanha/criativo
+        columns:
+          - name: string_field_0
+          - name: string_field_1
+          - name: string_field_2
+          - name: string_field_3
+      - name: CM-ALCANCE-DIARIO_RAW
+        description: tabela com dados raw referentes ao alcance diário de campanha/criativo
+        columns:
+          - name: Date
+          - name: Campaign_name
+          - name: UTM_CONTENT
+          - name: PAIS
+          - name: Reach
+      - name: CM_RAW
+        description: tabela com dados raw referentes a performance dos veiculos no cm
+        columns:
+          - name: Plataforma
+          - name: Placement
+          - name: Date
+          - name: Campaign_name
+          - name: Campaign_start_date
+          - name: Campaign_end_date
+          - name: Promoted_post_name
+          - name: Url_Destino
+          - name: Cost
+          - name: Impressions
+          - name: Link_clicks
+          - name: Video_play_actions
+          - name: Video_watches_at_25_
+          - name: Video_watches_at_50_
+          - name: Video_watches_at_75_
+          - name: Video_watches_at_100_
+          - name: CONTENT
+          - name: SEED
+      - name: META-ALCANCE-CAMPANHA_RAW
+        description: tabela com dados raw referentes ao alcance de campanha/criativo
+        columns:
+          - name: string_field_0
+          - name: string_field_1
+          - name: string_field_2
+      - name: META-ALCANCE-DIARIO_RAW
+        description: tabela com dados raw referentes ao alcance diario de campanha/criativo
+        columns:
+          - name: Date
+          - name: Campaign_name
+          - name: UTM_CONTENT
+          - name: Reach
+
+      - name: META_RAW
+        description: tabela com dados raw referentes a performance de meta ads
+        columns:
+          - name: Plataforma
+          - name: Placement
+          - name: Date
+          - name: Campaign_name
+          - name: Ad_set_name
+          - name: Promoted_post_name
+          - name: Promoted_post_image_URL
+          - name: Url_Destino
+          - name: utm_content
+          - name: Cost
+          - name: Impressions
+          - name: Link_clicks
+          - name: Engajamento
+          - name: Video_play_actions
+          - name: Video_watches_at_25_
+          - name: Video_watches_at_50_
+          - name: Video_watches_at_75_
+          - name: Video_watches_at_100_
+          - name: CONTENT
+          - name: SEED
+
+      - name: PLANEJADO_RAW
+        description: tabela com dados do plano de midia da campanha
+        columns:
+          - name: Aba_referencia
+          - name: MES
+          - name: ID_VEICULO
+          - name: REDE
+          - name: Veiculo_DASH
+          - name: IDSEED
+          - name: VEICULO
+          - name: DSP
+          - name: VEICULO_INVENTARIO
+          - name: Fonte_de_dados_principal_impressoes_cliques_etc
+          - name: Fonte_de_dados_orcamento_executado
+          - name: UF
+          - name: PRACA
+          - name: CANAL
+          - name: MODELO_DE_COMPRA
+          - name: SEGMENTACAO
+          - name: OBJETIVO
+          - name: TIPO_DE_COMPRA
+          - name: FORMATO
+          - name: TOTAL_INS
+          - name: VALOR_LIQUIDO
+          - name: Valor_unitario
+          - name: Data_de_inicio
+          - name: Data_fim
+          - name: Campanha
+
+      - name: TAXONOMIA_RAW
+        description: tabela com dados de taxonomia da campanha bb-asset
+        columns:
+          - name: ADVERTISER
+          - name: ADVERTISER_ABREVIADO
+          - name: NOME_PROJETO
+          - name: ARGUMENTO
+          - name: NUMERO_ACAO
+          - name: NUMERO_PROJETO
+          - name: NOME_CAMPANHA
+          - name: STATUS_
+          - name: IDPARAMETRO
+          - name: CONTENT_
+          - name: IDSEED_
+          - name: VEICULO_PLATAFORMA
+          - name: TIPO_INVENTARIO
+          - name: TIPO_DE_COMPRA
+          - name: OPTIMIZATION_IO
+          - name: TARGETING_MACRO
+          - name: DETALHAMENTO_SEGMENTACAO
+          - name: DETALHAMENTO_SEGMENTACAO_MACRO
+          - name: PRACA
+          - name: CANAL
+          - name: AGENCIA
+          - name: MES_REFERENCIA
+          - name: OPTIMIZATION_LI
+          - name: TIPO_DE_MIDIA
+          - name: TIPO_DE_COMPRA_
+          - name: ESTRATEGIA
+          - name: TECNOLOGIA_ADSERVER
+          - name: FORMATO_CRIATIVO
+          - name: DIMENSAO
+          - name: DISPOSITIVO
+          - name: LINHA_CRIATIVA
+          - name: CONTEUDO_DA_PECA
+          - name: DATA_PREVISTA_INICIO
+          - name: DATA_PREVISTA_FIM
+          - name: INSERTION_ORDER_DSP
+          - name: LINE_ITEM_DSP
+          - name: CONTAGEM_CARACTERES
+          - name: PLACEMENT_CM
+          - name: _
+          - name: CREATIVE_DSP
+          - name: URL_DESTINO
+          - name: URL_PARAMETRIZADA
+          - name: ID_ANUNCIO
+          - name: ID_ANUNCIO_
+          - name: UTM_CONTENT
+
+      - name: TIKTOK_RAW
+        description: tabela com dados raw referentes a performance de tiktok
+        columns:
+          - name: Date
+          - name: Campaign_name
+          - name: Ad_set_name
+          - name: Promoted_post_name
+          - name: Promoted_post_image_URL
+          - name: Url_Destino
+          - name: UTM_CONTENT
+          - name: Cost
+          - name: Impressions
+          - name: Link_clicks
+          - name: Engajamentos
+          - name: Video_play_actions
+          - name: Video_watches_at_25
+          - name: Video_watches_at_50
+          - name: Video_watches_at_75
+          - name: Video_watches_at_100
+          - name: CONTENT_IDSEED
+          - name: IDSEED
+
+      - name: TIKTOK-ALCANCE-DIARIO_RAW
+        description: tabela com dados raw referentes ao alcance diario de tiktok
+        columns:
+          - name: Date
+          - name: Campaign_name
+          - name: UTM_CONTENT
+          - name: Reach
+
+      - name: TIKTOK-ALCANCE-CAMPANHA_RAW
+        description: tabela com dados raw referentes ao alcance estimado de tiktok
+        columns:
+          - name: CAMPANHA
+          - name: UTM_CONTENT
+          - name: Reach
+
+      - name: GA_RAW
+        description: tabela com dados raw referentes ao tráfego no ga da campanha
+        columns:
+          - name: Date
+          - name: Session_campaign_name
+          - name: Session_source_medium
+          - name: Session_manual_ad_content
+          - name: Sessions
+          - name: Total_users
+          - name: New_users
+          - name: Engaged_sessions
+          - name: Average_session_duration
+          - name: Average_session_length_sec
+          - name: Views
+          - name: Bounces
+
+      - name: GA_EVENTOS_RAW
+        description: tabela com dados raw referentes aos eventos no ga da campanha
+        columns:
+          - name: Date
+          - name: Session_campaign_name
+          - name: Session_source_medium
+          - name: Session_manual_ad_content
+          - name: Event_name
+          - name: rotulo
+          - name: acao
+          - name: Event_count
+
+      - name: CM_IMPRESSOES_INVALIDAS_RAW
+        description: tabela com dados referentes ao brand safety de impressoes invalidas
+        columns:
+          - name: Date
+          - name: Campaign
+          - name: Placement
+          - name: Impressions
+          - name: Invalid_impressions
+          - name: SEED
+          - name: CONTENT
+
+      - name: CM_ACTIVEVIEW_VERIFICATION_RAW
+        description: tabela com dados referentes ao brand safety de impressoes fora do contexto
+        columns:
+          - name: Date
+          - name: Campaign
+          - name: Placement
+          - name: Active_View__Viewable_Impressions
+          - name: Active_View__Measurable_Impressions
+          - name: Classified_Impressions
+          - name: SEED
+          - name: CONTENT
+
+      - name: GA_SEM_ORIGEM_RAW
+        description: tabela com dados referentes ao trafego no ga sem origens
+        columns:
+          - name: Date
+          - name: Active_users
+          - name: New_users
+          - name: Total_users
+          - name: Sessions
+          - name: Engaged_sessions
+          - name: Views
+          - name: Average_session_duration
+          - name: Bounces
