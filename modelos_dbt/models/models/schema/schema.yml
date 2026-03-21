@@ -2,14 +2,14 @@ version: 2
 
 sources:
 
-    - name: CNI_UNISENAI_2026_raw_ads_sources # apelido único do *source* no dbt
+    - name: # apelido único do *source* no dbt
       description: Tabelas RAW ingestadas planilhas próprias;
-      database: still-protocol-440221-k2 # projeto GCP
-      schema: vendas_dataset # dataset no BigQuery
+      database: # projeto GCP
+      schema: # dataset no BigQuery
       tables:
 
       - name: df_final_vendas
-        description: tabela com dados raw referentes as vendas de cursos do unisenai
+        description: tabela com dados raw referentes as vendas de cursos;
         columns:
         - name: id_pedido
         - name: status_pedido
